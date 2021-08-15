@@ -54,8 +54,10 @@ pipeline {
     stage('Compile & Unit Tests') {
       steps{
         echo "------------>Compile & Unit Tests<------------"
-                sh 'chmod +x gradlew'
-                sh './gradlew --b ./build.gradle test'
+          dir('./microservicio/'){
+            sh 'chmod +x gradlew'
+            sh './gradlew --b ./build.gradle test'
+          }
 
         /*dir("${PROJECT_PATH_BACK}")
         {
@@ -78,7 +80,10 @@ pipeline {
     stage('Build') {
       steps {
         echo "------------>Build<------------"
-        sh './gradlew --b ./build.gradle build -x test'
+        dir('./microservicio/'){
+            sh './gradlew --b ./build.gradle build -x test'
+        }
+
       /*
        dir("${PROJECT_PATH_BACK}")
               {
