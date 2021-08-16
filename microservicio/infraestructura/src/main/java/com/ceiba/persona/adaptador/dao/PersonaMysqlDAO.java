@@ -14,8 +14,6 @@ import java.util.List;
 @Component
 public class PersonaMysqlDAO implements PersonaDAO {
 
-    private Log LOGGER = LogFactory.getLog(EstudianteMapeo.class);
-
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
     @SqlStatement(namespace = "persona", value = "listar")
     private static String sqlListar;
@@ -35,7 +33,7 @@ public class PersonaMysqlDAO implements PersonaDAO {
     public PersonaDTO obtener(Long id) {
         MapSqlParameterSource source = new MapSqlParameterSource();
         source.addValue("id", id);
-        LOGGER.info("el id en el obtener es : " + id);
+
         return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, source, new PersonaMapeo());
     }
 }

@@ -20,9 +20,11 @@ import java.sql.SQLException;
 
 
 public class EstudianteMapeo implements RowMapper<EstudianteDTO>, MapperResult {
+    private final ObtenerPersonaConsulta obtenerPersonaConsulta;
 
-
-    private Log LOGGER = LogFactory.getLog(EstudianteMapeo.class);
+    public EstudianteMapeo(ObtenerPersonaConsulta obtenerPersonaConsulta) {
+        this.obtenerPersonaConsulta = obtenerPersonaConsulta;
+    }
 
     @Override
     public EstudianteDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -30,6 +32,6 @@ public class EstudianteMapeo implements RowMapper<EstudianteDTO>, MapperResult {
         Long idPersona = rs.getLong("id_persona");
         String nivelEstudios = rs.getString("nivel_estudios");
 
-        return new EstudianteDTO(id, new PersonaDTO(idPersona), nivelEstudios);
+        return new EstudianteDTO(id,obtenerPersonaConsulta.ejecutar(idPersona), nivelEstudios);
     }
 }

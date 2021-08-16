@@ -4,7 +4,7 @@ package com.ceiba.estudiante.servicio;
 import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.estudiante.puerto.repositorio.EstudianteRepositorio;
-import com.ceiba.usuario.modelo.entidad.Usuario;
+
 
 public class ActualizarEstudianteServicio {
     private static final String LA_PERSONA_NO_EXISTE_EN_EL_SISTEMA = "La persona no existe en el sistema";
