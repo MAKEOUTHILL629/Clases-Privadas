@@ -7,9 +7,10 @@ import com.ceiba.estudiante.consulta.ObtenerEstudianteConsulta;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.profesor.consulta.ObtenerProfesorConsulta;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class ClaseMysqlDAO implements ClaseDAO {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
     private final ObtenerEstudianteConsulta obtenerEstudianteConsulta;

@@ -1,6 +1,7 @@
 package com.ceiba.temas_profesor.puerto.dao;
 
-import com.ceiba.temas_profesor.modelo.entidad.TemasProfesor;
+import com.ceiba.temas_profesor.modelo.dto.TemasProfesorDTO;
+
 
 import java.util.List;
 
@@ -11,13 +12,13 @@ public interface TemasProfesorDAO {
      *
      * @return los temas
      * */
-    List<TemasProfesor> listar();
+    List<TemasProfesorDTO> listar();
 
     /**
      * Permite obtener una lista de temas, por el id del profesor
      *
      * @return la lista de temas del profesor
      * */
-    List<TemasProfesor> listarByProfesor(Long id);
+    List<TemasProfesorDTO> listarByProfesor(Long id);
 
 }
