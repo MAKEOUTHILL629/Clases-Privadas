@@ -1,0 +1,1 @@
+select id, id_persona, nivel_estudios from estudiante

@@ -18,7 +18,7 @@ public class RepositorioUsuarioMysql implements RepositorioUsuario {
     @SqlStatement(namespace="usuario", value="actualizar")
     private static String sqlActualizar;
 
-    @SqlStatement(namespace="usuario", value="eliminar")
+    @SqlStatement(namespace="usuario", value="eliminar.sql")
     private static String sqlEliminar;
 
     @SqlStatement(namespace="usuario", value="existe")

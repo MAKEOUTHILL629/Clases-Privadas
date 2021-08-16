@@ -3,7 +3,7 @@ package com.ceiba.estudiante.puerto.repositorio;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.usuario.modelo.entidad.Usuario;
 
-public interface RepositorioEstudiante {
+public interface EstudianteRepositorio {
 
     /**
      * Permite crear un Estudiante
@@ -25,18 +25,11 @@ public interface RepositorioEstudiante {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe un usuario con un nombre
-     * @param nombre
+     * Permite validar si existe un estudiante con un id
+     * @param id
      * @return si existe o no
      */
-    boolean existe(String nombre);
-
-    /**
-     * Permite validar si existe un usuario con un nombre excluyendo un id
-     * @param nombre
-     * @return si existe o no
-     */
-    boolean existeExcluyendoId(Long id,String nombre);
+    boolean existe(Long id);
 
 
 

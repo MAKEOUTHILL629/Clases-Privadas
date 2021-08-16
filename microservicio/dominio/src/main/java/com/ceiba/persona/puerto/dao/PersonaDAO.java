@@ -11,4 +11,11 @@ public interface PersonaDAO {
      * @return los personas
      */
     List<PersonaDTO> listar();
+
+    /**
+     * Permite obtener una persona con su id
+     * @return  una persona
+     */
+
+    PersonaDTO obtener(Long id);
 }

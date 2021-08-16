@@ -1,0 +1,1 @@
+insert into persona (first_name, last_name, cedula) values (:nombres, :apellidos, :cedula)

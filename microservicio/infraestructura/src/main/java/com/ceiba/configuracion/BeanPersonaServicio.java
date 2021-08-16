@@ -1,5 +1,9 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
+import com.ceiba.persona.adaptador.dao.PersonaMysqlDAO;
+import com.ceiba.persona.consulta.ObtenerPersonaConsulta;
+import com.ceiba.persona.puerto.dao.PersonaDAO;
 import com.ceiba.persona.puerto.repositorio.PersonaRepositorio;
 import com.ceiba.persona.servicio.ActualizarPersonaServicio;
 import com.ceiba.persona.servicio.CrearPersonaServicio;

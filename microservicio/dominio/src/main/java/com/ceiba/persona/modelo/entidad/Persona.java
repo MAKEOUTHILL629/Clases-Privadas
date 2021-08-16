@@ -19,7 +19,12 @@ public class Persona {
     private String nombres;
     private String apellidos;
     private String cedula;
-    
+
+    public Persona(Long id){
+        this.id =id;
+
+    }
+
     public Persona(Long id, String nombres, String apellidos, String cedula) {
         validarObligatorio(nombres, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(apellidos, SE_DEBE_INGRESAR_EL_APELLIDOS_DE_USUARIO);

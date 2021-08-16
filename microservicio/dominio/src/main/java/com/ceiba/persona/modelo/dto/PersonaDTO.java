@@ -10,4 +10,8 @@ public class PersonaDTO {
     private String nombres;
     private String apellidos;
     private String cedula;
+
+    public PersonaDTO(Long id) {
+        this.id = id;
+    }
 }

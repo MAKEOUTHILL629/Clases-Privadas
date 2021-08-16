@@ -1,0 +1,1 @@
+select id,last_name,first_name,cedula from persona where id = :id
