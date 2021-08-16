@@ -12,7 +12,7 @@ public class EstudianteFabrica {
 
         return new Estudiante(
                 comandoEstudiante.getId(),
-                new Persona(comandoEstudiante.getId()),
+                new Persona(comandoEstudiante.getIdPersona()) ,
                 comandoEstudiante.getNivelEstudios()
         );
     }
