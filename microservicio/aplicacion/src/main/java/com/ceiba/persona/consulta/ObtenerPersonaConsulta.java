@@ -1,7 +1,6 @@
 package com.ceiba.persona.consulta;
 
 
-import com.ceiba.estudiante.puerto.dao.EstudianteDAO;
 import com.ceiba.persona.modelo.dto.PersonaDTO;
 import com.ceiba.persona.puerto.dao.PersonaDAO;
 import org.springframework.stereotype.Component;

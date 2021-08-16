@@ -2,11 +2,9 @@ package com.ceiba.estudiante.controlador;
 
 import com.ceiba.estudiante.consulta.ListarEstudiantesConsulta;
 import com.ceiba.estudiante.modelo.dto.EstudianteDTO;
-import com.ceiba.persona.modelo.dto.PersonaDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -24,7 +22,7 @@ public class ConsultarEstudianteControlador {
 
 
     @GetMapping
-    @ApiOperation("Listar Personas")
+    @ApiOperation("Listar estudiantes")
     public List<EstudianteDTO> listar(){
         return this.listarEstudiantesConsulta.ejecutar();
     }

@@ -16,6 +16,11 @@ public class Estudiante {
     private String nivelEstudios;
 
 
+
+    public Estudiante(Long id) {
+        this.id = id;
+    }
+
     public Estudiante(Long id, Persona persona, String nivelEstudios) {
         validarObligatorio(persona, SE_DEBE_INGRESAR_EL_ID_DE_LA_PERSONA);
         validarObligatorio(nivelEstudios, SE_DEBE_INGRESAR_EL_NIVEL_DE_ESTUDIOS);

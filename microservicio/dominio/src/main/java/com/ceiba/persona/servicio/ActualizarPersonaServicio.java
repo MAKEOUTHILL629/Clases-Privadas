@@ -22,7 +22,7 @@ public class ActualizarPersonaServicio {
 
     private void validarExistenciaPrevia(Persona persona) {
         boolean existe = this.personaRepositorio.existeExcluyendoId(persona.getId());
-        if(existe) {
+        if(!existe) {
             throw new ExcepcionDuplicidad(LA_PERSONA_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

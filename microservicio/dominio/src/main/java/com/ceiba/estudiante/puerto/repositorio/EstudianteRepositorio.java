@@ -1,7 +1,7 @@
 package com.ceiba.estudiante.puerto.repositorio;
 
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
-import com.ceiba.usuario.modelo.entidad.Usuario;
+
 
 public interface EstudianteRepositorio {
 

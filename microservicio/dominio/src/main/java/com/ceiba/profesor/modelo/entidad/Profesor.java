@@ -15,6 +15,9 @@ public class Profesor {
     private Persona persona;
     private String profesion;
 
+    public Profesor(Long id) {
+        this.id = id;
+    }
 
     public Profesor(Long id, Persona persona, String profesion) {
         validarObligatorio(persona, SE_DEBE_INGRESAR_EL_ID_DE_LA_PERSONA);
