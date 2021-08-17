@@ -1,0 +1,1 @@
+insert into temas_profesor(id_profesor, tema) values (:profesor.id, :tema)

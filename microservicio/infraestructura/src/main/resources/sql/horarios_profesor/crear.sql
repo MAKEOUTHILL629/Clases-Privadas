@@ -1,0 +1,1 @@
+insert into horarios_profesor (id_profesor, dia_semana, hora) values (:profesor.id, :diaSemana, :hora)

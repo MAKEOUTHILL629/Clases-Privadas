@@ -1,0 +1,1 @@
+select count(1) from profesor where id := id

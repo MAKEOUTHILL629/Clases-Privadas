@@ -1,0 +1,1 @@
+select id, id_persona, profesion from horarios_profesor

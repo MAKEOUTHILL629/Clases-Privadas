@@ -1,0 +1,1 @@
+select id, id_persona, profesion from profesor where id = :id

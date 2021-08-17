@@ -1,0 +1,1 @@
+select count(1) from horarios_profesor where id = :id

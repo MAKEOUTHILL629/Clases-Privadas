@@ -1,3 +1,3 @@
 delete
-from estudiante
+from profesor
 where id = :id

@@ -34,6 +34,8 @@ public class ProfesorMysqlRepositorio implements ProfesorRepositorio {
 
     @Override
     public void actualizar(Profesor profesor) {
+
+
         this.jdbcTemplate.actualizar(profesor, sqlActualizar);
     }
 

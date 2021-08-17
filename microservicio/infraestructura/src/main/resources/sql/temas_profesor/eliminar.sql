@@ -1,3 +1,3 @@
 delete
-from estudiante
+from temas_profesor
 where id = :id

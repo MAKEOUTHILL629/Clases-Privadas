@@ -1,0 +1,1 @@
+select id,id_profesor,tema from temas_profesor
