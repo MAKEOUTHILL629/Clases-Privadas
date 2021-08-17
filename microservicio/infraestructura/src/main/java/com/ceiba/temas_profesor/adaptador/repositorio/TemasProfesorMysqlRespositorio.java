@@ -5,7 +5,9 @@ import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.temas_profesor.modelo.entidad.TemasProfesor;
 import com.ceiba.temas_profesor.puerto.repositorio.TemasProfesorRepositorio;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class TemasProfesorMysqlRespositorio implements TemasProfesorRepositorio {
 
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;

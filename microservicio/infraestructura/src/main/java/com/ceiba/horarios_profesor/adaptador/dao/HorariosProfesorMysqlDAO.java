@@ -6,9 +6,10 @@ import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.profesor.consulta.ObtenerProfesorConsulta;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public class HorariosProfesorMysqlDAO implements HorariosProfesorDAO {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
     private final ObtenerProfesorConsulta obtenerProfesorConsulta;
