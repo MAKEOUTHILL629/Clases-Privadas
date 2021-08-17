@@ -1,10 +1,13 @@
 package com.ceiba.estudiante.adaptador.repositorio;
 
+import com.ceiba.estudiante.adaptador.repositorio.estudiantemap.EstudianteMapSqlParameterSource;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.estudiante.puerto.repositorio.EstudianteRepositorio;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -30,12 +33,18 @@ public class EstudianteMysqlRepositorio implements EstudianteRepositorio {
 
     @Override
     public Long crear(Estudiante estudiante) {
-        return this.jdbcTemplate.crear(estudiante, sqlCrear);
+        MapSqlParameterSource paramSource = new EstudianteMapSqlParameterSource(estudiante).mapearParametrosToSql();
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource,keyHolder,new String[] { "id" });
+        return keyHolder.getKey().longValue();
     }
 
     @Override
     public void actualizar(Estudiante estudiante) {
-        this.jdbcTemplate.actualizar(estudiante, sqlActualizar);
+        MapSqlParameterSource paramSource = new EstudianteMapSqlParameterSource(estudiante).mapearParametrosToSql();
+
+        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlActualizar, paramSource);
     }
 
     @Override

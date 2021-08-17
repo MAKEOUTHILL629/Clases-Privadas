@@ -1,1 +1,1 @@
-insert into profesor (id_persona, profesion) values (:persona.id, :profesion)
+insert into profesor (id_persona, profesion) values (:id_persona, :profesion)

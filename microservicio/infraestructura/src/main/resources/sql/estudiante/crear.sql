@@ -1,1 +1,1 @@
-insert into estudiante (id_persona, nivel_estudios) values (:persona.id, :nivelEstudios)
+insert into estudiante (id_persona, nivel_estudios) values (:id_persona, :nivelEstudios)

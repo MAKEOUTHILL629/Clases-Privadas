@@ -1,10 +1,13 @@
 package com.ceiba.horarios_profesor.adaptador.repositorio;
 
+import com.ceiba.horarios_profesor.adaptador.repositorio.horarios_profesormap.HorariosProfesorMapSqlParameterSource;
 import com.ceiba.horarios_profesor.modelo.entidad.HorariosProfesor;
 import com.ceiba.horarios_profesor.puerto.repositorio.HorariosProfesorRepositorio;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -29,12 +32,18 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
 
     @Override
     public Long crear(HorariosProfesor horarios) {
-        return this.jdbcTemplate.crear(horarios,sqlCrear);
+        MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
+        KeyHolder keyHolder = new GeneratedKeyHolder();
+
+        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource,keyHolder,new String[] { "id" });
+        return keyHolder.getKey().longValue();
     }
 
     @Override
     public void actualizar(HorariosProfesor horarios) {
-        this.jdbcTemplate.actualizar(horarios, sqlActualizar);
+        MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
+
+        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlActualizar, paramSource);
     }
 
     @Override

@@ -1,1 +1,1 @@
-insert into clase (id_profesor, id_estudiante, fecha, valor) values(:profesor.id, :estudiante.id, :fecha, :valor)
+insert into clase (id_profesor, id_estudiante, fecha, valor) values(:id_profesor, :id_estudiante, :fecha, :valor)
