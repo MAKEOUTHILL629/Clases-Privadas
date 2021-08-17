@@ -3,8 +3,7 @@ package com.ceiba.persona.modelo.entidad;
 
 import lombok.Getter;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarLongitud;
-import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
+import static com.ceiba.dominio.ValidadorArgumento.*;
 
 @Getter
 public class Persona {
@@ -29,7 +28,8 @@ public class Persona {
         validarObligatorio(nombres, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(apellidos, SE_DEBE_INGRESAR_EL_APELLIDOS_DE_USUARIO);
         validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA);
-        validarLongitud(cedula, LONGITUD_CEDULA, LA_CEDULA_DEBE_TENER_UNA_LONGITUD_IGUAL_A);
+        validarLongitudExacta(cedula, LONGITUD_CEDULA, LA_CEDULA_DEBE_TENER_UNA_LONGITUD_IGUAL_A);
+
 
         this.id = id;
         this.nombres = nombres;

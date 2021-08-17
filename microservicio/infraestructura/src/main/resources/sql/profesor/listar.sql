@@ -1,1 +1,1 @@
-select id, id_persona, profesion from horarios_profesor
+select id, id_persona, profesion from profesor

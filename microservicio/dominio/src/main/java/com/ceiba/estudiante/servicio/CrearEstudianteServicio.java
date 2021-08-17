@@ -21,7 +21,7 @@ public class CrearEstudianteServicio {
 
     private void validarExistenciaPrevia(Estudiante estudiante) {
         boolean existe = this.repositorio.existe(estudiante.getId());
-        if(existe) {
+        if(!existe) {
             throw new ExcepcionDuplicidad(LA_PERSONA_YA_EXISTE_EN_EL_SISTEMA);
         }
     }

@@ -7,7 +7,7 @@ import com.ceiba.estudiante.puerto.repositorio.EstudianteRepositorio;
 
 
 public class ActualizarEstudianteServicio {
-    private static final String LA_PERSONA_NO_EXISTE_EN_EL_SISTEMA = "La persona no existe en el sistema";
+    private static final String EL_ESTUDIANTE_NO_EXISTE_EN_EL_SISTEMA = "El estudiante no existe en el sistema";
 
     private final EstudianteRepositorio repositorio;
 
@@ -23,8 +23,8 @@ public class ActualizarEstudianteServicio {
 
     private void validarExistenciaPrevia(Estudiante estudiante) {
         boolean existe = this.repositorio.existe(estudiante.getId());
-        if(existe) {
-            throw new ExcepcionDuplicidad(LA_PERSONA_NO_EXISTE_EN_EL_SISTEMA);
+        if(!existe) {
+            throw new ExcepcionDuplicidad(EL_ESTUDIANTE_NO_EXISTE_EN_EL_SISTEMA);
         }
     }
 }
