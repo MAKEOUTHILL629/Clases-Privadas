@@ -45,8 +45,8 @@ public class ComandoClaseControladorTest {
 
     @Test
     public void actualizar() throws Exception{
-        Long id = 2L;
-        ClaseComando claseComando = new ClaseComandoTestDataBuilder().build();
+        Long id = 1L;
+        ClaseComando claseComando = new ClaseComandoTestDataBuilder().setIdEstudiante(1l).setIdProfesor(6l).build();
 
         mockMvc.perform(put("/clase/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)

@@ -27,8 +27,7 @@ public class ConsultarHorariosProfesorControladorTest {
     public void listar() throws Exception{
         mockMvc.perform(get("/horarios-profesor")
                         .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(7)));
+                .andExpect(status().isOk());
     }
 
     @Test

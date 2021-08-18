@@ -12,8 +12,8 @@ public class ClaseComandoTestDataBuilder {
     private Double valor;
 
     public ClaseComandoTestDataBuilder() {
-        this.idEstudiante = 1l;
-        this.idProfesor = 1l;
+        this.idEstudiante = 6l;
+        this.idProfesor = 3l;
         this.fecha = LocalDateTime.now().plusHours(2);
         this.valor = 65000D;
     }
