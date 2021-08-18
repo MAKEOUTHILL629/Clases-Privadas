@@ -32,6 +32,6 @@ public class ClaseMapeo implements RowMapper<ClaseDTO>, MapperResult {
                 obtenerProfesorConsulta.ejecutar(idProfesor),
                 fecha,
                 valor
-                );
+        );
     }
 }

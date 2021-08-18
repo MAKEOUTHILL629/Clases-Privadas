@@ -11,11 +11,12 @@ public interface HorariosProfesorDAO {
      * Permite listar todos los horarios de los profesores
      *
      * @return los horarios
-     * */
+     */
     List<HorariosProfesorDTO> listar();
 
     /**
      * Permite listar los horarios del profesor en concreto
+     *
      * @param id
      * @return la listar de horarios del profesor
      */

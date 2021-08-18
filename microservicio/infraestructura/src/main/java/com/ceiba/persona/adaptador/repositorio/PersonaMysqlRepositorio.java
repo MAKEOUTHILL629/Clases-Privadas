@@ -12,19 +12,19 @@ public class PersonaMysqlRepositorio implements PersonaRepositorio {
 
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
 
-    @SqlStatement(namespace="persona", value="crear")
+    @SqlStatement(namespace = "persona", value = "crear")
     private static String sqlCrear;
 
-    @SqlStatement(namespace="persona", value="actualizar")
+    @SqlStatement(namespace = "persona", value = "actualizar")
     private static String sqlActualizar;
 
-    @SqlStatement(namespace="persona", value="eliminar")
+    @SqlStatement(namespace = "persona", value = "eliminar")
     private static String sqlEliminar;
 
-    @SqlStatement(namespace="persona", value="existe")
+    @SqlStatement(namespace = "persona", value = "existe")
     private static String sqlExiste;
 
-    @SqlStatement(namespace="persona", value="existeExcluyendoId")
+    @SqlStatement(namespace = "persona", value = "existeExcluyendoId")
     private static String sqlExisteExcluyendoId;
 
     public PersonaMysqlRepositorio(CustomNamedParameterJdbcTemplate jdbcTemplate) {

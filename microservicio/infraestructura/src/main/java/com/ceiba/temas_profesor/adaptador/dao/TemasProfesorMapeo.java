@@ -26,6 +26,6 @@ public class TemasProfesorMapeo implements RowMapper<TemasProfesorDTO>, MapperRe
                 id,
                 obtenerProfesorConsulta.ejecutar(idProfesor),
                 tema
-                );
+        );
     }
 }

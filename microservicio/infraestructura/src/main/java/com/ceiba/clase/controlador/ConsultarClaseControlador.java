@@ -27,13 +27,13 @@ public class ConsultarClaseControlador {
 
     @GetMapping
     @ApiOperation("Listar clases")
-    public List<ClaseDTO> listar(){
+    public List<ClaseDTO> listar() {
         return this.consulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("Obtiene una clase")
-    public ClaseDTO obtener(@PathVariable Long id){
+    public ClaseDTO obtener(@PathVariable Long id) {
         return this.obtenerConsulta.ejecutar(id);
     }
 

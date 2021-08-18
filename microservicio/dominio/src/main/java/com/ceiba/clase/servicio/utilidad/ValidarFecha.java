@@ -8,6 +8,10 @@ import java.time.LocalTime;
 
 public class ValidarFecha {
 
+    private ValidarFecha(){
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Boolean esDomingoOSabado(LocalDateTime dateTime){
         LocalDate date = dateTime.toLocalDate();
         return date.getDayOfWeek() == DayOfWeek.SATURDAY || date.getDayOfWeek() == DayOfWeek.SUNDAY;

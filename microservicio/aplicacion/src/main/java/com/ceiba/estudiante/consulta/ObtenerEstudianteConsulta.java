@@ -12,7 +12,7 @@ public class ObtenerEstudianteConsulta {
         this.estudianteDAO = estudianteDAO;
     }
 
-    public EstudianteDTO ejecutar(Long id){
+    public EstudianteDTO ejecutar(Long id) {
         return this.estudianteDAO.obtener(id);
     }
 }

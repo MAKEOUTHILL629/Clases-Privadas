@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/horarios")
-@Api(tags = { "Controlador comando horarios profesor"})
+@Api(tags = {"Controlador comando horarios profesor"})
 public class ComandoHorariosProfesorControlador {
     private final CrearHorariosProfesorManejador crearManejador;
     private final ActualizarHorariosProfesorManejador actualizarManejador;
@@ -25,19 +25,19 @@ public class ComandoHorariosProfesorControlador {
 
     @PostMapping
     @ApiOperation("Crear horario profesor")
-    public ComandoRespuesta<Long> crear(@RequestBody HorariosProfesorComando comando){
+    public ComandoRespuesta<Long> crear(@RequestBody HorariosProfesorComando comando) {
         return crearManejador.ejecutar(comando);
     }
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value = "/{id}")
     @ApiOperation("Eliminar horario profesor")
-    public void eliminar(@PathVariable Long id){
+    public void eliminar(@PathVariable Long id) {
         eliminarManejador.ejecutar(id);
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar horario profesor")
-    public void actualizar(@RequestBody HorariosProfesorComando comando, @PathVariable Long id){
+    public void actualizar(@RequestBody HorariosProfesorComando comando, @PathVariable Long id) {
         comando.setId(id);
         actualizarManejador.ejecutar(comando);
     }

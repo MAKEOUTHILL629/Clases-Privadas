@@ -7,12 +7,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HorariosProfesorFabrica {
-    public HorariosProfesor crear(HorariosProfesorComando comando){
+    public HorariosProfesor crear(HorariosProfesorComando comando) {
         return new HorariosProfesor(
                 comando.getId(),
                 new Profesor(comando.getIdProfesor()),
                 comando.getDiaSemana(),
                 comando.getHora()
-                );
+        );
     }
 }

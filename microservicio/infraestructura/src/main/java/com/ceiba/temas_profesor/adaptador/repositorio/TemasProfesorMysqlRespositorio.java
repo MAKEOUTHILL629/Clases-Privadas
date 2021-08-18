@@ -1,6 +1,5 @@
 package com.ceiba.temas_profesor.adaptador.repositorio;
 
-import com.ceiba.horarios_profesor.adaptador.repositorio.horarios_profesormap.HorariosProfesorMapSqlParameterSource;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.temas_profesor.adaptador.repositorio.temas_profesormap.TemasProfesorMapSqlParameterSource;
@@ -10,6 +9,8 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+
+import java.util.Objects;
 
 @Repository
 public class TemasProfesorMysqlRespositorio implements TemasProfesorRepositorio {
@@ -38,7 +39,7 @@ public class TemasProfesorMysqlRespositorio implements TemasProfesorRepositorio 
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource, keyHolder, new String[]{"id"});
-        return keyHolder.getKey().longValue();
+        return Objects.requireNonNull(keyHolder.getKey()).longValue();
     }
 
     @Override

@@ -24,7 +24,7 @@ public class HorariosProfesorMapeo implements RowMapper<HorariosProfesorDTO>, Ma
         String diaSemana = rs.getString("dia_semana");
         LocalTime hora = rs.getTime("hora").toLocalTime();
 
-        return  new HorariosProfesorDTO(
+        return new HorariosProfesorDTO(
                 id,
                 obtenerProfesorConsulta.ejecutar(idProfesor),
                 diaSemana,

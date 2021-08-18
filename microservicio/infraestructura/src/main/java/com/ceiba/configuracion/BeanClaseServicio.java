@@ -6,24 +6,23 @@ import com.ceiba.clase.servicio.ActualizarClaseServicio;
 import com.ceiba.clase.servicio.CrearClaseServicio;
 import com.ceiba.clase.servicio.EliminarClaseServicio;
 import com.ceiba.estudiante.puerto.dao.EstudianteDAO;
-import com.ceiba.profesor.puerto.dao.ProfesorDAO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanClaseServicio {
     @Bean
-    public CrearClaseServicio crearClaseServicio(ClaseRepositorio repositorio ,EstudianteDAO estudianteDAO){
-        return new CrearClaseServicio(repositorio,estudianteDAO);
+    public CrearClaseServicio crearClaseServicio(ClaseRepositorio repositorio, EstudianteDAO estudianteDAO) {
+        return new CrearClaseServicio(repositorio, estudianteDAO);
     }
 
     @Bean
-    public EliminarClaseServicio eliminarClaseServicio(ClaseRepositorio repositorio){
+    public EliminarClaseServicio eliminarClaseServicio(ClaseRepositorio repositorio) {
         return new EliminarClaseServicio(repositorio);
     }
 
     @Bean
-    public ActualizarClaseServicio actualizarClaseServicio(ClaseRepositorio repositorio){
-        return  new ActualizarClaseServicio(repositorio);
+    public ActualizarClaseServicio actualizarClaseServicio(ClaseRepositorio repositorio) {
+        return new ActualizarClaseServicio(repositorio);
     }
 }

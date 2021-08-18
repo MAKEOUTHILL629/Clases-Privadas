@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EliminarEstudiantesManejador implements ManejadorComando<Long> {
-    private final EliminarEstudianteServicio  servicio;
+    private final EliminarEstudianteServicio servicio;
 
     public EliminarEstudiantesManejador(EliminarEstudianteServicio servicio) {
         this.servicio = servicio;

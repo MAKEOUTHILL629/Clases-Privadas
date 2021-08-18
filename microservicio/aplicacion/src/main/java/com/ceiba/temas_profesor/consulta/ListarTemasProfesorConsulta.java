@@ -5,6 +5,7 @@ import com.ceiba.temas_profesor.puerto.dao.TemasProfesorDAO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public class ListarTemasProfesorConsulta {
     private final TemasProfesorDAO temasProfesorDAO;
@@ -14,7 +15,7 @@ public class ListarTemasProfesorConsulta {
         this.temasProfesorDAO = temasProfesorDAO;
     }
 
-    public List<TemasProfesorDTO> ejecutar(){
+    public List<TemasProfesorDTO> ejecutar() {
         return this.temasProfesorDAO.listar();
     }
 }

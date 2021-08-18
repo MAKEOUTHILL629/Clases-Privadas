@@ -29,7 +29,7 @@ public class ConsultarClaseControladorTest {
         mockMvc.perform(get("/clases")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(0)));
+                .andExpect(jsonPath("$", hasSize(4)));
     }
 
     @Test
@@ -38,6 +38,6 @@ public class ConsultarClaseControladorTest {
 
         mockMvc.perform(get("/clases/{id}", id)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().is5xxServerError());
+                .andExpect(status().isOk());
     }
 }

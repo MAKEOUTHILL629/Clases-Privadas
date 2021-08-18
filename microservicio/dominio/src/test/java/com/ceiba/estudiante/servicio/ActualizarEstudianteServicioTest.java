@@ -18,7 +18,7 @@ public class ActualizarEstudianteServicioTest {
     public void validarEstudianteExistenciaPrevia() {
         Estudiante estudiante = new EstudianteTestDataBuilder().build();
         EstudianteRepositorio repositorio = mock(EstudianteRepositorio.class);
-        when(repositorio.existe(anyLong())).thenReturn(false);
+        when(repositorio.existe(anyLong())).thenReturn(true);
         ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio);
 
         BasePrueba.assertThrows(()-> servicio.ejecutar(estudiante), ExcepcionDuplicidad.class, "El estudiante no existe en el sistema");

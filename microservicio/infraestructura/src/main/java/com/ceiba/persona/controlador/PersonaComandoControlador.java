@@ -27,19 +27,19 @@ public class PersonaComandoControlador {
 
     @PostMapping
     @ApiOperation("Crear Persona")
-    public ComandoRespuesta<Long> crear(@RequestBody PersonaComando personaComando){
+    public ComandoRespuesta<Long> crear(@RequestBody PersonaComando personaComando) {
         return crearManejador.ejecutar(personaComando);
     }
 
     @DeleteMapping(value = "/{id}")
     @ApiOperation("Elimar persona")
-    public void eliminar(@PathVariable Long id){
+    public void eliminar(@PathVariable Long id) {
         eliminarManejador.ejecutar(id);
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar Usuario")
-    public void actualizar(@RequestBody PersonaComando personaComando, @PathVariable Long id){
+    public void actualizar(@RequestBody PersonaComando personaComando, @PathVariable Long id) {
         personaComando.setId(id);
         actualizarManejador.ejecutar(personaComando);
     }

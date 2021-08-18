@@ -12,14 +12,14 @@ public class ActualizarTemaProfesorServicio {
         this.repositorio = repositorio;
     }
 
-    public void ejecutar(TemasProfesor tema){
+    public void ejecutar(TemasProfesor tema) {
         validarExistenciaPrevia(tema);
         this.repositorio.actualizar(tema);
     }
 
     private void validarExistenciaPrevia(TemasProfesor temasProfesor) {
         boolean existe = this.repositorio.existe(temasProfesor.getId());
-        if(!existe) {
+        if (!existe) {
             throw new ExcepcionDuplicidad(EL_TEMA_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

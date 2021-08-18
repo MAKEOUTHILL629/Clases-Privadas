@@ -12,7 +12,7 @@ public class ObtenerProfesorConsulta {
         this.profesorDAO = profesorDAO;
     }
 
-    public ProfesorDTO ejecutar(Long id){
-        return  this.profesorDAO.obtener(id);
+    public ProfesorDTO ejecutar(Long id) {
+        return this.profesorDAO.obtener(id);
     }
 }

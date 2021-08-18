@@ -3,14 +3,13 @@ package com.ceiba.temas_profesor.adaptador.dao;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
 import com.ceiba.profesor.consulta.ObtenerProfesorConsulta;
-import com.ceiba.profesor.modelo.dto.ProfesorDTO;
-import com.ceiba.profesor.puerto.dao.ProfesorDAO;
 import com.ceiba.temas_profesor.modelo.dto.TemasProfesorDTO;
 import com.ceiba.temas_profesor.puerto.dao.TemasProfesorDAO;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public class TemasProfesorMysqlDAO implements TemasProfesorDAO {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
@@ -37,7 +36,7 @@ public class TemasProfesorMysqlDAO implements TemasProfesorDAO {
         MapSqlParameterSource source = new MapSqlParameterSource();
         source.addValue("id", id);
 
-        return this.jdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener,source,new TemasProfesorMapeo(obtenerProfesorConsulta));
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener, source, new TemasProfesorMapeo(obtenerProfesorConsulta));
     }
 
 

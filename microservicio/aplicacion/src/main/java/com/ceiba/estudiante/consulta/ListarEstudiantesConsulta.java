@@ -10,13 +10,12 @@ import java.util.List;
 @Component
 public class ListarEstudiantesConsulta {
     private final EstudianteDAO estudianteDAO;
-
-
+    
     public ListarEstudiantesConsulta(EstudianteDAO estudianteDAO) {
         this.estudianteDAO = estudianteDAO;
     }
 
-    public List<EstudianteDTO> ejecutar(){
+    public List<EstudianteDTO> ejecutar() {
         return this.estudianteDAO.listar();
     }
 

@@ -27,10 +27,19 @@ public interface ClaseRepositorio {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe una clase con un id
+     * Permite validar si existe una clase con un el id del estudiante
      *
-     * @param id
+     * @param clase
      * @return si existe o no
      */
-    boolean existe(Long id);
+    boolean existe(Clase clase);
+
+
+    /**
+     * Permite validar si existe una clase con todos los parametros que utiliza
+     *
+     * @param clase
+     * @return si existe o no
+     */
+    boolean esRepetido(Clase clase);
 }

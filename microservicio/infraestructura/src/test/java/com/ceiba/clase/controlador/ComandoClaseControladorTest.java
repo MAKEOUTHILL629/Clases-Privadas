@@ -38,7 +38,7 @@ public class ComandoClaseControladorTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(clase)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 1}"));
+                .andExpect(content().json("{'valor': 5}"));
 
     }
 

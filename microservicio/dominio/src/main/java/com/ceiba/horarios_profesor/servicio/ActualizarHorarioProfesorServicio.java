@@ -13,14 +13,14 @@ public class ActualizarHorarioProfesorServicio {
         this.repositorio = repositorio;
     }
 
-    public void ejecutar(HorariosProfesor horariosProfesor){
+    public void ejecutar(HorariosProfesor horariosProfesor) {
         validarExistenciaPrevia(horariosProfesor);
         this.repositorio.actualizar(horariosProfesor);
     }
 
     private void validarExistenciaPrevia(HorariosProfesor horariosProfesor) {
         boolean existe = this.repositorio.existe(horariosProfesor.getId());
-        if(existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(EL_HORARIO_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

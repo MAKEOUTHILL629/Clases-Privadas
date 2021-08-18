@@ -14,7 +14,7 @@ public class ObtenerHorariosProfesorConsulta {
         this.horariosProfesorDAO = horariosProfesorDAO;
     }
 
-    public List<HorariosProfesorDTO> ejecutar(Long id){
+    public List<HorariosProfesorDTO> ejecutar(Long id) {
         return this.horariosProfesorDAO.listarByProfesor(id);
     }
 }

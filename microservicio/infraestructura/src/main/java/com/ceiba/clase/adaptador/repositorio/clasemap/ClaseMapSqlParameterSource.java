@@ -15,7 +15,7 @@ public class ClaseMapSqlParameterSource {
         this.clase = clase;
     }
 
-    public MapSqlParameterSource mapearParametrosToSql(){
+    public MapSqlParameterSource mapearParametrosToSql() {
         paramSource.addValue("id", clase.getId());
         paramSource.addValue("id_profesor", clase.getProfesor().getId());
         paramSource.addValue("id_estudiante", clase.getEstudiante().getId());

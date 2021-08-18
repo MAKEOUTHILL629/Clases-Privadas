@@ -26,17 +26,16 @@ public class ConsultaPersonaControlador {
 
     @GetMapping
     @ApiOperation("Listar Personas")
-    public List<PersonaDTO> listar(){
+    public List<PersonaDTO> listar() {
         return this.listarPersonas.ejecutar();
     }
 
 
     @GetMapping("/{id}")
     @ApiOperation("Devuelve la persona solicitado")
-    public PersonaDTO obtener(@PathVariable Long id){
+    public PersonaDTO obtener(@PathVariable Long id) {
         return this.obtenerPersonaConsulta.ejecutar(id);
     }
-
 
 
 }

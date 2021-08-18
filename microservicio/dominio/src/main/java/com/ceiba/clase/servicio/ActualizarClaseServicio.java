@@ -19,8 +19,8 @@ public class ActualizarClaseServicio {
     }
 
     public void validarExistenciaPrevia(Clase clase) {
-        boolean existencia = this.repositorio.existe(clase.getId());
-        if (existencia) {
+        boolean existencia = this.repositorio.existe(clase);
+        if (!existencia) {
             throw new ExcepcionDuplicidad(LA_CLASE_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

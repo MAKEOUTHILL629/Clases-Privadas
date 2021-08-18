@@ -10,20 +10,22 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.Objects;
+
 @Repository
 public class HorariosProfesorMysqlRepositorio implements HorariosProfesorRepositorio {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
 
-    @SqlStatement(namespace="horarios_profesor", value="crear")
+    @SqlStatement(namespace = "horarios_profesor", value = "crear")
     private static String sqlCrear;
 
-    @SqlStatement(namespace="horarios_profesor", value="actualizar")
+    @SqlStatement(namespace = "horarios_profesor", value = "actualizar")
     private static String sqlActualizar;
 
-    @SqlStatement(namespace="horarios_profesor", value="eliminar")
+    @SqlStatement(namespace = "horarios_profesor", value = "eliminar")
     private static String sqlEliminar;
 
-    @SqlStatement(namespace="horarios_profesor", value="existe")
+    @SqlStatement(namespace = "horarios_profesor", value = "existe")
     private static String sqlExiste;
 
     public HorariosProfesorMysqlRepositorio(CustomNamedParameterJdbcTemplate jdbcTemplate) {
@@ -35,8 +37,8 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
         MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource,keyHolder,new String[] { "id" });
-        return keyHolder.getKey().longValue();
+        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource, keyHolder, new String[]{"id"});
+        return Objects.requireNonNull(keyHolder.getKey()).longValue();
     }
 
     @Override

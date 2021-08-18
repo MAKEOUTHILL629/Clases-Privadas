@@ -36,6 +36,6 @@ public class ProfesorMysqlDAO implements ProfesorDAO {
         MapSqlParameterSource source = new MapSqlParameterSource();
         source.addValue("id", id);
 
-        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener,source,new ProfesorMapeo(obtenerPersonaConsulta));
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, source, new ProfesorMapeo(obtenerPersonaConsulta));
     }
 }

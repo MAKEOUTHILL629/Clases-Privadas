@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProfesorFabrica {
-    public Profesor crear(ProfesorComando comando){
+    public Profesor crear(ProfesorComando comando) {
 
         return new Profesor(
                 comando.getId(),

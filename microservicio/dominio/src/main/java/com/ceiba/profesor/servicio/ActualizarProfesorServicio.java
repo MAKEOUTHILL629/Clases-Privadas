@@ -13,14 +13,14 @@ public class ActualizarProfesorServicio {
     }
 
 
-    public void ejecutar(Profesor profesor){
+    public void ejecutar(Profesor profesor) {
         validarExistenciaPrevia(profesor);
         this.repositorio.actualizar(profesor);
     }
 
     private void validarExistenciaPrevia(Profesor profesor) {
         boolean existe = this.repositorio.existe(profesor.getId());
-        if(!existe) {
+        if (!existe) {
             throw new ExcepcionDuplicidad(EL_PROFESOR_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

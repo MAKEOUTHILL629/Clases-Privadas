@@ -1,7 +1,6 @@
 package com.ceiba.clase.adaptador.dao;
 
 import com.ceiba.clase.modelo.dto.ClaseDTO;
-import com.ceiba.clase.modelo.entidad.Clase;
 import com.ceiba.clase.puerto.dao.ClaseDAO;
 import com.ceiba.estudiante.consulta.ObtenerEstudianteConsulta;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
@@ -11,6 +10,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public class ClaseMysqlDAO implements ClaseDAO {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
@@ -31,13 +31,13 @@ public class ClaseMysqlDAO implements ClaseDAO {
 
     @Override
     public List<ClaseDTO> listar() {
-        return this.jdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new ClaseMapeo(obtenerEstudianteConsulta,obtenerProfesorConsulta));
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().query(sqlListar, new ClaseMapeo(obtenerEstudianteConsulta, obtenerProfesorConsulta));
     }
 
     @Override
     public ClaseDTO obtener(Long id) {
         MapSqlParameterSource source = new MapSqlParameterSource();
         source.addValue("id", id);
-        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, source, new ClaseMapeo(obtenerEstudianteConsulta,obtenerProfesorConsulta));
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, source, new ClaseMapeo(obtenerEstudianteConsulta, obtenerProfesorConsulta));
     }
 }

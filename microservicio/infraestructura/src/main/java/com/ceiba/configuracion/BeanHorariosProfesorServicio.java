@@ -10,15 +10,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanHorariosProfesorServicio {
     @Bean
-    public CrearHorarioProfesorServicio crearHorarioProfesorServicio(HorariosProfesorRepositorio repositorio){
+    public CrearHorarioProfesorServicio crearHorarioProfesorServicio(HorariosProfesorRepositorio repositorio) {
         return new CrearHorarioProfesorServicio(repositorio);
     }
+
     @Bean
-    public EliminarHorarioProfesorService eliminarHorarioProfesorService(HorariosProfesorRepositorio repositorio){
+    public EliminarHorarioProfesorService eliminarHorarioProfesorService(HorariosProfesorRepositorio repositorio) {
         return new EliminarHorarioProfesorService(repositorio);
     }
+
     @Bean
-    public ActualizarHorarioProfesorServicio actualizarHorarioProfesorServicio(HorariosProfesorRepositorio repositorio){
+    public ActualizarHorarioProfesorServicio actualizarHorarioProfesorServicio(HorariosProfesorRepositorio repositorio) {
         return new ActualizarHorarioProfesorServicio(repositorio);
     }
 }

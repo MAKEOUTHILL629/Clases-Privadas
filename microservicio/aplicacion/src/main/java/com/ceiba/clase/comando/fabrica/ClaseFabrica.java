@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ClaseFabrica {
-    public Clase crear(ClaseComando claseComando){
+    public Clase crear(ClaseComando claseComando) {
 
         return new Clase(
                 claseComando.getId(),
@@ -16,6 +16,6 @@ public class ClaseFabrica {
                 new Profesor(claseComando.getIdProfesor()),
                 claseComando.getFecha(),
                 claseComando.getValor()
-                );
+        );
     }
 }

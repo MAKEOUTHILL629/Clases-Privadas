@@ -9,7 +9,7 @@ public class EliminarEstudianteServicio {
         this.repositorio = repositorio;
     }
 
-    public void ejecutar(Long id){
+    public void ejecutar(Long id) {
         this.repositorio.eliminar(id);
     }
 }

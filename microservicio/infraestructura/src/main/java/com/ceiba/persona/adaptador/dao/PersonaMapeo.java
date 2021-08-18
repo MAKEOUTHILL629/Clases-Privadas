@@ -17,6 +17,6 @@ public class PersonaMapeo implements RowMapper<PersonaDTO>, MapperResult {
         String apellidos = rs.getString("last_name");
         String cedula = rs.getString("cedula");
 
-        return new PersonaDTO(id,nombres,apellidos,cedula);
+        return new PersonaDTO(id, nombres, apellidos, cedula);
     }
 }

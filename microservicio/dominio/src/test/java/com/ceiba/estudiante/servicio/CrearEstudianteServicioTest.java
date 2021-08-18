@@ -17,7 +17,7 @@ public class CrearEstudianteServicioTest {
     public void validarEstudianteExistenciaPreviaTest() {
         Estudiante estudiante = new EstudianteTestDataBuilder().build();
         EstudianteRepositorio repositorio = mock(EstudianteRepositorio.class);
-        when(repositorio.existe(anyLong())).thenReturn(false);
+        when(repositorio.existe(anyLong())).thenReturn(true);
         CrearEstudianteServicio servicio = new CrearEstudianteServicio(repositorio);
 
         BasePrueba.assertThrows(()-> servicio.ejecutar(estudiante), ExcepcionDuplicidad.class, "La persona ya existe en el sistema");

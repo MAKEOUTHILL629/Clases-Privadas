@@ -3,7 +3,7 @@ package com.ceiba.estudiante.modelo.entidad;
 import com.ceiba.persona.modelo.entidad.Persona;
 import lombok.Getter;
 
-import static com.ceiba.dominio.ValidadorArgumento.validarLongitud;
+
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter

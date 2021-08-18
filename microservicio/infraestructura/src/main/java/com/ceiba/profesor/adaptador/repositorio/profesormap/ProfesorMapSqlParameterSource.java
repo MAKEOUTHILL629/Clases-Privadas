@@ -12,14 +12,13 @@ public class ProfesorMapSqlParameterSource {
         this.profesor = profesor;
     }
 
-    public MapSqlParameterSource mapearParametrosToSql(){
+    public MapSqlParameterSource mapearParametrosToSql() {
         paramSource.addValue("id", profesor.getId());
         paramSource.addValue("id_persona", profesor.getPersona().getId());
         paramSource.addValue("profesion", profesor.getProfesion());
 
         return this.paramSource;
     }
-
 
 
 }

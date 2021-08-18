@@ -7,6 +7,7 @@ import java.util.List;
 public interface ClaseDAO {
     /**
      * Permite listar las clases
+     *
      * @return las clases
      */
     List<ClaseDTO> listar();
@@ -14,7 +15,8 @@ public interface ClaseDAO {
 
     /**
      * Permite obtener una clase con su id
-     * @return  una clase
+     *
+     * @return una clase
      */
     ClaseDTO obtener(Long id);
 

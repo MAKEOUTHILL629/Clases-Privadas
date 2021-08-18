@@ -14,7 +14,7 @@ public class ObtenerTemasProfesorConsulta {
         this.temasProfesorDAO = temasProfesorDAO;
     }
 
-    public List<TemasProfesorDTO> ejecutar(Long id){
+    public List<TemasProfesorDTO> ejecutar(Long id) {
         return this.temasProfesorDAO.listarByProfesor(id);
     }
 }

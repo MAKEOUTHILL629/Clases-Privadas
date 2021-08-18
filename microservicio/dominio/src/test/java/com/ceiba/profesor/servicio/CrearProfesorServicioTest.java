@@ -20,7 +20,7 @@ public class CrearProfesorServicioTest {
     public void validarProfesorExistenciaPreviaTest() {
         Profesor profesor = new ProfesorTestDataBuilder().build();
         ProfesorRepositorio repositorio = mock(ProfesorRepositorio.class);
-        when(repositorio.existe(anyLong())).thenReturn(false);
+        when(repositorio.existe(anyLong())).thenReturn(true);
         CrearProfesorServicio servicio = new CrearProfesorServicio(repositorio);
 
         BasePrueba.assertThrows(()-> servicio.ejecutar(profesor), ExcepcionDuplicidad.class, "El profesor ya existe en el sistema");

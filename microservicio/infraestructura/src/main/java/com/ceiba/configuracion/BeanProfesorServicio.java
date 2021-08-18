@@ -10,16 +10,17 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanProfesorServicio {
     @Bean
-    public CrearProfesorServicio crearProfesorServicio(ProfesorRepositorio repositorio){
+    public CrearProfesorServicio crearProfesorServicio(ProfesorRepositorio repositorio) {
         return new CrearProfesorServicio(repositorio);
     }
 
     @Bean
-    public EliminarProfesorServicio eliminarProfesorServicio(ProfesorRepositorio repositorio){
-        return  new EliminarProfesorServicio(repositorio);
+    public EliminarProfesorServicio eliminarProfesorServicio(ProfesorRepositorio repositorio) {
+        return new EliminarProfesorServicio(repositorio);
     }
+
     @Bean
-    public ActualizarProfesorServicio actualizarProfesorServicio(ProfesorRepositorio repositorio){
+    public ActualizarProfesorServicio actualizarProfesorServicio(ProfesorRepositorio repositorio) {
         return new ActualizarProfesorServicio(repositorio);
     }
 }

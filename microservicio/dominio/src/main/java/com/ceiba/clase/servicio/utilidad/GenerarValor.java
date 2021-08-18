@@ -22,15 +22,15 @@ public class GenerarValor {
         Double total = tarifa;
 
 
-        if(ValidarFecha.esFechaHoyPeroMasTarde(time)){
+        if(ValidarFecha.esFechaHoyPeroMasTarde(time).booleanValue()){
             total += (total * AUMENTO_TARIFA_DIA_ACTUAL) /100;
         }
 
-        if(ValidarFecha.esDomingoOSabado(time)){
+        if(ValidarFecha.esDomingoOSabado(time).booleanValue()){
             total += (total * AUMENTO_TARIFA_SABADOS_DOMINGOS) /100;
         }
 
-        if(esEstudianteNuevo){
+        if(esEstudianteNuevo.booleanValue()){
             total -= DESCUENTO_PRIMERA_CLASE;
         }
 

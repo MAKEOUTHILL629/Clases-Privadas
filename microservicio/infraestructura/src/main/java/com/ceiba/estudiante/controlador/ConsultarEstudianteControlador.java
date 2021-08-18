@@ -26,13 +26,13 @@ public class ConsultarEstudianteControlador {
 
     @GetMapping
     @ApiOperation("Listar estudiantes")
-    public List<EstudianteDTO> listar(){
+    public List<EstudianteDTO> listar() {
         return this.listarEstudiantesConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("obtine un estudiante en especifico")
-    public EstudianteDTO obtener(@PathVariable Long id){
+    public EstudianteDTO obtener(@PathVariable Long id) {
         return this.obtenerEstudianteConsulta.ejecutar(id);
     }
 

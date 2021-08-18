@@ -21,7 +21,7 @@ public class CrearPersonaServicio {
 
     private void validarExistenciaPrevia(Persona persona) {
         boolean existe = this.personaRepositorio.existe(persona.getCedula());
-        if(existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(LA_PERSONA_YA_EXISTE_EN_EL_SISTEMA);
         }
     }

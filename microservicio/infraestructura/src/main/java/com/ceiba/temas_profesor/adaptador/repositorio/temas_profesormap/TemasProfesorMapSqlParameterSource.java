@@ -12,7 +12,7 @@ public class TemasProfesorMapSqlParameterSource {
         this.temasProfesor = temasProfesor;
     }
 
-    public MapSqlParameterSource mapearParametrosToSql(){
+    public MapSqlParameterSource mapearParametrosToSql() {
         paramSource.addValue("id", temasProfesor.getId());
         paramSource.addValue("id_profesor", temasProfesor.getProfesor().getId());
         paramSource.addValue("tema", temasProfesor.getTema());

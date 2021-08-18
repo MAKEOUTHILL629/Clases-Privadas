@@ -13,17 +13,17 @@ import org.springframework.context.annotation.Configuration;
 public class BeanEstudianteServicio {
 
     @Bean
-    public CrearEstudianteServicio crearEstudianteServicio(EstudianteRepositorio repositorio){
-        return  new CrearEstudianteServicio(repositorio);
+    public CrearEstudianteServicio crearEstudianteServicio(EstudianteRepositorio repositorio) {
+        return new CrearEstudianteServicio(repositorio);
     }
 
     @Bean
-    public EliminarEstudianteServicio eliminarEstudianteServicio(EstudianteRepositorio repositorio){
+    public EliminarEstudianteServicio eliminarEstudianteServicio(EstudianteRepositorio repositorio) {
         return new EliminarEstudianteServicio(repositorio);
     }
 
     @Bean
-    public ActualizarEstudianteServicio actualizarEstudianteServicio(EstudianteRepositorio repositorio){
-        return  new ActualizarEstudianteServicio(repositorio);
+    public ActualizarEstudianteServicio actualizarEstudianteServicio(EstudianteRepositorio repositorio) {
+        return new ActualizarEstudianteServicio(repositorio);
     }
 }

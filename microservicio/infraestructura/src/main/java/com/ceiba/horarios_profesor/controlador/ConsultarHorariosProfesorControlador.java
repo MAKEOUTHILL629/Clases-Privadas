@@ -26,13 +26,13 @@ public class ConsultarHorariosProfesorControlador {
 
     @GetMapping
     @ApiOperation("Listar horarios")
-    public List<HorariosProfesorDTO> listar(){
+    public List<HorariosProfesorDTO> listar() {
         return this.consulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("obtine un horario en especifico")
-    public List<HorariosProfesorDTO> obtener(@PathVariable Long id){
+    public List<HorariosProfesorDTO> obtener(@PathVariable Long id) {
         return this.obtenerHorariosProfesorConsulta.ejecutar(id);
     }
 }

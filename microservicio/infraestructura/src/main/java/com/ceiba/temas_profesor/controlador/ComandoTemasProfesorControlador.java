@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/temas")
-@Api(tags = { "Controlador comando temas profesor"})
+@Api(tags = {"Controlador comando temas profesor"})
 public class ComandoTemasProfesorControlador {
     private final CrearTemasProfesorManejador crearManejador;
     private final ActualizarTemasProfesorManejador actualizarManejador;
@@ -22,21 +22,22 @@ public class ComandoTemasProfesorControlador {
         this.actualizarManejador = actualizarManejador;
         this.eliminarManejador = eliminarManejador;
     }
+
     @PostMapping
     @ApiOperation("Crear tema profesor")
-    public ComandoRespuesta<Long> crear(@RequestBody TemasProfesorComando comando){
+    public ComandoRespuesta<Long> crear(@RequestBody TemasProfesorComando comando) {
         return crearManejador.ejecutar(comando);
     }
 
-    @DeleteMapping(value="/{id}")
+    @DeleteMapping(value = "/{id}")
     @ApiOperation("Eliminar tema profesor")
-    public void eliminar(@PathVariable Long id){
+    public void eliminar(@PathVariable Long id) {
         eliminarManejador.ejecutar(id);
     }
 
-    @PutMapping(value="/{id}")
+    @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar tema profesor")
-    public void actualizar(@RequestBody TemasProfesorComando comando, @PathVariable Long id ){
+    public void actualizar(@RequestBody TemasProfesorComando comando, @PathVariable Long id) {
         comando.setId(id);
         actualizarManejador.ejecutar(comando);
     }

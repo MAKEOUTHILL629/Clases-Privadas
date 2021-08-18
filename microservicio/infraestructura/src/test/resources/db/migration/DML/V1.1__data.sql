@@ -54,3 +54,9 @@ INSERT INTO temas_profesor (id_profesor,tema) VALUES
  (5,'CULTURA'),
  (6,'DERIVADAS'),
  (7,'METAMORFOSIS');
+
+ INSERT INTO clase (id_profesor, id_estudiante, fecha, valor) VALUES
+ (1,1, '2021-08-22 12:00:00', 69500),
+ (2,3, '2021-08-19 12:00:00', 36750),
+ (3,2, '2021-08-21 12:00:00', 82175),
+ (5,4, '2021-08-21 16:00:00', 52275);

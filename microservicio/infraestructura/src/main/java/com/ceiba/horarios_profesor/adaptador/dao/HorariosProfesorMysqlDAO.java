@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+
 @Component
 public class HorariosProfesorMysqlDAO implements HorariosProfesorDAO {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
@@ -33,8 +34,9 @@ public class HorariosProfesorMysqlDAO implements HorariosProfesorDAO {
 
     @Override
     public List<HorariosProfesorDTO> listarByProfesor(Long id) {
-         MapSqlParameterSource source = new MapSqlParameterSource();
-        source.addValue("id", id);;
+        MapSqlParameterSource source = new MapSqlParameterSource();
+        source.addValue("id", id);
+        
 
         return this.jdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtener, source, new HorariosProfesorMapeo(obtenerProfesorConsulta));
     }

@@ -15,7 +15,7 @@ public class ListarPersonasConsulta {
         this.personaDAO = personaDAO;
     }
 
-    public List<PersonaDTO> ejecutar(){
+    public List<PersonaDTO> ejecutar() {
         return this.personaDAO.listar();
     }
 }

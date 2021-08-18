@@ -13,7 +13,7 @@ public class ObtenerPersonaConsulta {
         this.personaDAO = personaDAO;
     }
 
-    public PersonaDTO ejecutar(Long id){
-       return this.personaDAO.obtener(id);
+    public PersonaDTO ejecutar(Long id) {
+        return this.personaDAO.obtener(id);
     }
 }

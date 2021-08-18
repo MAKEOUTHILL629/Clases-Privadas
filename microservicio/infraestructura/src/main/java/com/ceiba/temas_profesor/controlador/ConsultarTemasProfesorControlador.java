@@ -26,13 +26,13 @@ public class ConsultarTemasProfesorControlador {
 
     @GetMapping
     @ApiOperation("Listar temas")
-    public List<TemasProfesorDTO> listar(){
+    public List<TemasProfesorDTO> listar() {
         return this.consulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("Listar temas de un profesor")
-    public List<TemasProfesorDTO> obtener(@PathVariable Long id){
+    public List<TemasProfesorDTO> obtener(@PathVariable Long id) {
         return this.obtenerTemasProfesorConsulta.ejecutar(id);
     }
 

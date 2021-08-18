@@ -10,6 +10,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.Objects;
+
 @Repository
 public class ProfesorMysqlRepositorio implements ProfesorRepositorio {
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
@@ -36,7 +38,7 @@ public class ProfesorMysqlRepositorio implements ProfesorRepositorio {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource, keyHolder, new String[]{"id"});
-        return keyHolder.getKey().longValue();
+        return Objects.requireNonNull(keyHolder.getKey()).longValue();
     }
 
     @Override

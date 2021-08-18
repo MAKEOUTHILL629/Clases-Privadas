@@ -14,7 +14,7 @@ public class ListarHorariosProfesorConsulta {
         this.horariosProfesorDAO = horariosProfesorDAO;
     }
 
-    public List<HorariosProfesorDTO> ejecutar(){
+    public List<HorariosProfesorDTO> ejecutar() {
         return this.horariosProfesorDAO.listar();
     }
 }

@@ -19,8 +19,8 @@ public class Persona {
     private String apellidos;
     private String cedula;
 
-    public Persona(Long id){
-        this.id =id;
+    public Persona(Long id) {
+        this.id = id;
 
     }
 
