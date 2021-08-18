@@ -5,6 +5,7 @@ import com.ceiba.estudiante.comando.EstudianteComando;
 import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteComandoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -28,6 +29,7 @@ public class ComandoEstudianteControladorTest {
     private MockMvc mocMvc;
 
     @Test
+
     public void crear() throws Exception {
 
         EstudianteComando estudiante = new EstudianteComandoTestDataBuilder().build();
@@ -40,6 +42,7 @@ public class ComandoEstudianteControladorTest {
     }
 
     @Test
+
     public void actualizar() throws Exception {
         Long id = 8L;
         EstudianteComando comando = new EstudianteComandoTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
@@ -52,6 +55,7 @@ public class ComandoEstudianteControladorTest {
     }
 
     @Test
+
     public void eliminar() throws Exception {
         Long id = 8L;
 

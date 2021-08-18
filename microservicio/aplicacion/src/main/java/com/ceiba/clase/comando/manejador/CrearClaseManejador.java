@@ -19,8 +19,8 @@ public class CrearClaseManejador implements ManejadorComandoRespuesta<ClaseComan
     }
 
     @Override
-    public ComandoRespuesta<Long> ejecutar(ClaseComandoCrear comando) {
-        Clase clase = this.fabrica.crear(comando);
+    public ComandoRespuesta<Long> ejecutar(ClaseComandoCrear claseComandoCrear) {
+        Clase clase = this.fabrica.crear(claseComandoCrear);
         return new ComandoRespuesta<>(this.servicio.ejecutar(clase));
     }
 }

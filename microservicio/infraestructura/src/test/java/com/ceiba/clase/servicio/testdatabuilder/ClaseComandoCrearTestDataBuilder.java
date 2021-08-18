@@ -31,6 +31,6 @@ public class ClaseComandoCrearTestDataBuilder {
     }
 
     public ClaseComandoCrear build(){
-        return new ClaseComandoCrear(idEstudiante,idProfesor,fecha);
+        return new ClaseComandoCrear(idProfesor, idProfesor,fecha);
     }
 }
