@@ -1,4 +1,4 @@
-package com.ceiba.clase.comando;
+package com.ceiba.clase.comando.comando;
 
 import lombok.*;
 
