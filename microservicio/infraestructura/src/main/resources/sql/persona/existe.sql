@@ -1,1 +1,1 @@
-select count(1) from usuario where cedula = :cedula
+select count(1) from persona where cedula = :cedula

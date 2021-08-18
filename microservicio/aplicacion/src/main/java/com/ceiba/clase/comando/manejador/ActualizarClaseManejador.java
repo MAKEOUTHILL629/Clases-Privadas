@@ -21,7 +21,6 @@ public class ActualizarClaseManejador implements ManejadorComando<ClaseComando> 
     @Override
     public void ejecutar(ClaseComando comando) {
         Clase clase = this.fabrica.crear(comando);
-
         this.servicio.ejecutar(clase);
     }
 }

@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/horarios-profesor")
+@RequestMapping("/horarios")
 @Api(tags = { "Controlador comando horarios profesor"})
 public class ComandoHorariosProfesorControlador {
     private final CrearHorariosProfesorManejador crearManejador;

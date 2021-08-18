@@ -1,8 +1,11 @@
 package com.ceiba.profesor.comando;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class ProfesorComando {
     private Long id;
     private Long idPersona;

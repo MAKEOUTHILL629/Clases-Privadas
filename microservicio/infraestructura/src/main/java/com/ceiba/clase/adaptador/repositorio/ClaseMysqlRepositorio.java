@@ -5,13 +5,18 @@ import com.ceiba.clase.modelo.entidad.Clase;
 import com.ceiba.clase.puerto.repositorio.ClaseRepositorio;
 import com.ceiba.infraestructura.jdbc.CustomNamedParameterJdbcTemplate;
 import com.ceiba.infraestructura.jdbc.sqlstatement.SqlStatement;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import java.util.Objects;
+
 @Repository
 public class ClaseMysqlRepositorio implements ClaseRepositorio {
+    Log LOGGER = LogFactory.getLog(ClaseMysqlRepositorio.class);
     private final CustomNamedParameterJdbcTemplate jdbcTemplate;
 
     @SqlStatement(namespace = "clase", value = "crear")
@@ -33,11 +38,13 @@ public class ClaseMysqlRepositorio implements ClaseRepositorio {
 
     @Override
     public Long crear(Clase clase) {
+
         MapSqlParameterSource parameterSource = new ClaseMapSqlParameterSource(clase).mapearParametrosToSql();
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, parameterSource, keyHolder, new String[]{"id"});
-        return keyHolder.getKey().longValue();
+        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, parameterSource, keyHolder, new String[]{ "id" });
+        return Objects.requireNonNull(keyHolder.getKey())
+                .longValue();
     }
 
     @Override

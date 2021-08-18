@@ -27,8 +27,7 @@ public class Clase {
         validarObligatorio(estudiante, SE_DEBE_INGRESAR_UN_ID_REFERENTE_AL_ESTUDIANTE);
         validarObligatorio(profesor, SE_DEBE_INGRESAR_UN_ID_REFERENTE_AL_PROFESOR);
         validarObligatorio(fecha,SE_DEBE_INGRESAR_LA_FECHA_DE_LA_CLASE);
-        validarObligatorio(valor, SE_DEBE_INGRESAR_EL_VALOR_DE_LA_CLASE);
-        validarPositivo(valor,SE_DEBE_INGRESAR_UN_VALOR_POSITIVO );
+
 
         this.id = id;
         this.estudiante = estudiante;

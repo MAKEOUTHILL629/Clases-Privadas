@@ -12,7 +12,7 @@ public class TarifaTest {
     public void validarUniversitario() {
         Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios("UNIVERSIDAD").build();
 
-        Double tarifa = Tarifa.generarTarifa(estudiante);
+        Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         assertEquals(65000D,tarifa,0);
     }
@@ -22,7 +22,7 @@ public class TarifaTest {
     public void validarSecundaria() {
         Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
 
-        Double tarifa = Tarifa.generarTarifa(estudiante);
+        Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         assertEquals(55000D,tarifa,0);
     }
@@ -31,7 +31,7 @@ public class TarifaTest {
     public void validarPrimaria() {
         Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios("PRIMARIA").build();
 
-        Double tarifa = Tarifa.generarTarifa(estudiante);
+        Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         assertEquals(45000D,tarifa,0);
     }

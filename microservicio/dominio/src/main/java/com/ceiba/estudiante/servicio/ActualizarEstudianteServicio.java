@@ -23,7 +23,7 @@ public class ActualizarEstudianteServicio {
 
     private void validarExistenciaPrevia(Estudiante estudiante) {
         boolean existe = this.repositorio.existe(estudiante.getId());
-        if(!existe) {
+        if(existe) {
             throw new ExcepcionDuplicidad(EL_ESTUDIANTE_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

@@ -20,7 +20,7 @@ public class CrearProfesorServicio {
 
     private void validarExistenciaPrevia(Profesor profesor) {
         boolean existe = this.repositorio.existe(profesor.getId());
-        if (!existe) {
+        if (existe) {
             throw new ExcepcionDuplicidad(EL_PROFESOR_YA_EXISTE_EN_EL_SISTEMA);
         }
     }

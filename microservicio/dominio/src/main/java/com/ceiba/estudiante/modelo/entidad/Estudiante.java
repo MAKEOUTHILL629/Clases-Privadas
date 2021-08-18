@@ -15,8 +15,6 @@ public class Estudiante {
     private Persona persona;
     private String nivelEstudios;
 
-
-
     public Estudiante(Long id) {
         this.id = id;
     }

@@ -17,7 +17,7 @@ public class GenerarValorTest {
         LocalDateTime localDateTime = LocalDateTime.of(2021,8,22,3,13);
         Boolean esNuevo = true;
         Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios("UNIVERSIDAD").build();
-        Double tarifa = Tarifa.generarTarifa(estudiante);
+        Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         Double valortTotal = GenerarValor.generarTotal(localDateTime,esNuevo,tarifa);
 
@@ -29,7 +29,7 @@ public class GenerarValorTest {
         LocalDateTime localDateTime = LocalDateTime.of(2021,8,21,3,13);
         Boolean esNuevo = false;
         Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios("PRIMARIA").build();
-        Double tarifa = Tarifa.generarTarifa(estudiante);
+        Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         Double valortTotal = GenerarValor.generarTotal(localDateTime,esNuevo,tarifa);
 
@@ -41,7 +41,7 @@ public class GenerarValorTest {
         LocalDateTime localDateTime = LocalDateTime.now().plusHours(2);
         Boolean esNuevo = true;
         Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
-        Double tarifa = Tarifa.generarTarifa(estudiante);
+        Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         Double valortTotal = GenerarValor.generarTotal(localDateTime,esNuevo,tarifa);
 

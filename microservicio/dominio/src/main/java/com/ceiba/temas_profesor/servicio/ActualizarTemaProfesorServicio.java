@@ -19,7 +19,7 @@ public class ActualizarTemaProfesorServicio {
 
     private void validarExistenciaPrevia(TemasProfesor temasProfesor) {
         boolean existe = this.repositorio.existe(temasProfesor.getId());
-        if(existe) {
+        if(!existe) {
             throw new ExcepcionDuplicidad(EL_TEMA_NO_EXISTE_EN_EL_SISTEMA);
         }
     }

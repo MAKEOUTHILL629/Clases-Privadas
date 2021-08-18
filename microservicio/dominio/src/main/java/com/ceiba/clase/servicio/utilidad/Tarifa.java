@@ -7,8 +7,8 @@ public class Tarifa {
     private static final Double TARIFA_SECUNDARIA = 55000D;
     private static final Double TARIFA_PRIMARIA = 45000D;
 
-    public static Double generarTarifa(Estudiante estudiante){
-        switch (estudiante.getNivelEstudios()){
+    public static Double generarTarifa(String nivelEstudios){
+        switch (nivelEstudios){
             case "UNIVERSIDAD":
                 return TARIFA_UNIVERSIDAD;
 

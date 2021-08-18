@@ -11,4 +11,11 @@ public interface ClaseDAO {
      */
     List<ClaseDTO> listar();
 
+
+    /**
+     * Permite obtener una clase con su id
+     * @return  una clase
+     */
+    ClaseDTO obtener(Long id);
+
 }

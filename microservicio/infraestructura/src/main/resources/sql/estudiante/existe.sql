@@ -1,1 +1,1 @@
-select count(1) from estudiante where id := id
+select count(1) from estudiante where id = :id

@@ -10,7 +10,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/clases")
+@RequestMapping("/clase")
 @Api(tags = { "Controlador comando clases"})
 public class ComandoClaseControlador {
     private final CrearClaseManejador manejadorCrear;

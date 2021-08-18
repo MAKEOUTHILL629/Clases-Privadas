@@ -1,10 +1,13 @@
 package com.ceiba.horarios_profesor.comando;
 
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalTime;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class HorariosProfesorComando {
     private Long id;
     private Long idProfesor;

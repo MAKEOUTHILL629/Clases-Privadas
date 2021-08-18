@@ -1,8 +1,11 @@
 package com.ceiba.temas_profesor.comando;
 
-import lombok.Data;
+import lombok.*;
 
-@Data
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class TemasProfesorComando {
     private Long id;
     private Long idProfesor;

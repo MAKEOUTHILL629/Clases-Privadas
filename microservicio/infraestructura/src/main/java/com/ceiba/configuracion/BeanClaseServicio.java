@@ -5,14 +5,16 @@ import com.ceiba.clase.puerto.repositorio.ClaseRepositorio;
 import com.ceiba.clase.servicio.ActualizarClaseServicio;
 import com.ceiba.clase.servicio.CrearClaseServicio;
 import com.ceiba.clase.servicio.EliminarClaseServicio;
+import com.ceiba.estudiante.puerto.dao.EstudianteDAO;
+import com.ceiba.profesor.puerto.dao.ProfesorDAO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class BeanClaseServicio {
     @Bean
-    public CrearClaseServicio crearClaseServicio(ClaseRepositorio repositorio){
-        return new CrearClaseServicio(repositorio);
+    public CrearClaseServicio crearClaseServicio(ClaseRepositorio repositorio ,EstudianteDAO estudianteDAO){
+        return new CrearClaseServicio(repositorio,estudianteDAO);
     }
 
     @Bean

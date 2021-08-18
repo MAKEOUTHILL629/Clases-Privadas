@@ -22,9 +22,9 @@ public class CrearClaseServicioTest {
                 .setFecha(LocalDateTime.now().plusHours(2)).build();
         ClaseRepositorio repositorio = mock(ClaseRepositorio.class);
         when(repositorio.existe(anyObject())).thenReturn(false);
-        CrearClaseServicio servicio = new CrearClaseServicio(repositorio);
+       // CrearClaseServicio servicio = new CrearClaseServicio(repositorio);
 
-        servicio.ejecutar(clase);
+        //servicio.ejecutar(clase);
 
         verify(repositorio).existe(anyLong());
     }
