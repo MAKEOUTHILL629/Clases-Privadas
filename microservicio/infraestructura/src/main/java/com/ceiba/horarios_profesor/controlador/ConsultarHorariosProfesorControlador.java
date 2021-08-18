@@ -1,7 +1,7 @@
 package com.ceiba.horarios_profesor.controlador;
 
 import com.ceiba.horarios_profesor.consulta.ListarHorariosProfesorConsulta;
-import com.ceiba.horarios_profesor.consulta.ObtenerHorariosProfesorConsulta;
+import com.ceiba.horarios_profesor.consulta.ObtenerHorariosProfesorManejadorConsulta;
 import com.ceiba.horarios_profesor.modelo.dto.HorariosProfesorDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,9 +17,9 @@ import java.util.List;
 @Api(tags = {"Controlador consulta horarios"})
 public class ConsultarHorariosProfesorControlador {
     private final ListarHorariosProfesorConsulta consulta;
-    private final ObtenerHorariosProfesorConsulta obtenerHorariosProfesorConsulta;
+    private final ObtenerHorariosProfesorManejadorConsulta obtenerHorariosProfesorConsulta;
 
-    public ConsultarHorariosProfesorControlador(ListarHorariosProfesorConsulta consulta, ObtenerHorariosProfesorConsulta obtenerHorariosProfesorConsulta) {
+    public ConsultarHorariosProfesorControlador(ListarHorariosProfesorConsulta consulta, ObtenerHorariosProfesorManejadorConsulta obtenerHorariosProfesorConsulta) {
         this.consulta = consulta;
         this.obtenerHorariosProfesorConsulta = obtenerHorariosProfesorConsulta;
     }

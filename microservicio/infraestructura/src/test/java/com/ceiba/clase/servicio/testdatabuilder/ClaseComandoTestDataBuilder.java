@@ -1,6 +1,6 @@
 package com.ceiba.clase.servicio.testdatabuilder;
 
-import com.ceiba.clase.comando.ClaseComando;
+import com.ceiba.clase.comando.comando.ClaseComandoActualizar;
 
 import java.time.LocalDateTime;
 
@@ -43,7 +43,7 @@ public class ClaseComandoTestDataBuilder {
         return this;
     }
 
-    public ClaseComando build(){
-        return new ClaseComando(id,idEstudiante,idProfesor,fecha,valor);
+    public ClaseComandoActualizar build(){
+      return new ClaseComandoActualizar(idEstudiante,idProfesor,fecha);
     }
 }

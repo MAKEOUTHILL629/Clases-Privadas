@@ -1,5 +1,6 @@
 package com.ceiba.estudiante.servicio.testdatabuilder;
 
+import com.ceiba.estudiante.modelo.clasificacion.ObtenerNivelEstudios;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.persona.modelo.entidad.Persona;
 
@@ -9,7 +10,7 @@ public class EstudianteTestDataBuilder {
     private String nivelEstudios;
 
     public EstudianteTestDataBuilder() {
-        this.nivelEstudios = "Universidad";
+        this.nivelEstudios = "UNIVERSIDAD";
         this.persona = new Persona(1L, "prueba_nom", "prueba_apell", "1234567890");
         this.id = 1L;
     }
@@ -30,6 +31,6 @@ public class EstudianteTestDataBuilder {
     }
 
     public Estudiante build(){
-        return new Estudiante(id, persona, nivelEstudios);
+        return new Estudiante(id, persona, ObtenerNivelEstudios.obtenerNivelEstudios(nivelEstudios));
     }
 }

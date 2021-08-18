@@ -1,7 +1,7 @@
 package com.ceiba.temas_profesor.controlador;
 
 import com.ceiba.temas_profesor.consulta.ListarTemasProfesorConsulta;
-import com.ceiba.temas_profesor.consulta.ObtenerTemasProfesorConsulta;
+import com.ceiba.temas_profesor.consulta.ObtenerTemasProfesorManejadorConsulta;
 import com.ceiba.temas_profesor.modelo.dto.TemasProfesorDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,9 +17,9 @@ import java.util.List;
 @Api(tags = {"Controlador consulta temas"})
 public class ConsultarTemasProfesorControlador {
     private final ListarTemasProfesorConsulta consulta;
-    private final ObtenerTemasProfesorConsulta obtenerTemasProfesorConsulta;
+    private final ObtenerTemasProfesorManejadorConsulta obtenerTemasProfesorConsulta;
 
-    public ConsultarTemasProfesorControlador(ListarTemasProfesorConsulta consulta, ObtenerTemasProfesorConsulta obtenerTemasProfesorConsulta) {
+    public ConsultarTemasProfesorControlador(ListarTemasProfesorConsulta consulta, ObtenerTemasProfesorManejadorConsulta obtenerTemasProfesorConsulta) {
         this.consulta = consulta;
         this.obtenerTemasProfesorConsulta = obtenerTemasProfesorConsulta;
     }

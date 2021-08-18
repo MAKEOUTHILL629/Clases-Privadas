@@ -47,6 +47,9 @@ public class ClaseTestDataBuilder {
     }
 
     public Clase build(){
-        return new Clase(id,estudiante,profesor,fecha,valor);
+       Clase clase =  new Clase(estudiante,profesor,fecha);
+       clase.setId(id);
+       clase.setValor(valor);
+        return clase;
     }
 }

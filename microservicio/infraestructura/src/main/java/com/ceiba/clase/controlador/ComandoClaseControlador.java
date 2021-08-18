@@ -1,7 +1,8 @@
 package com.ceiba.clase.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.clase.comando.ClaseComando;
+import com.ceiba.clase.comando.comando.ClaseComandoActualizar;
+import com.ceiba.clase.comando.comando.ClaseComandoCrear;
 import com.ceiba.clase.comando.manejador.ActualizarClaseManejador;
 import com.ceiba.clase.comando.manejador.CrearClaseManejador;
 import com.ceiba.clase.comando.manejador.EliminarClaseManejador;
@@ -25,8 +26,8 @@ public class ComandoClaseControlador {
 
     @PostMapping
     @ApiOperation("Crear clase")
-    public ComandoRespuesta<Long> crear(@RequestBody ClaseComando clase) {
-        return this.manejadorCrear.ejecutar(clase);
+    public ComandoRespuesta<Long> crear(@RequestBody ClaseComandoCrear claseGuardar) {
+        return this.manejadorCrear.ejecutar(claseGuardar);
     }
 
     @DeleteMapping(value = "/{id}")
@@ -37,9 +38,9 @@ public class ComandoClaseControlador {
 
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar clase")
-    public void actualizar(@RequestBody ClaseComando claseComando, @PathVariable Long id) {
-        claseComando.setId(id);
-        manejadorActualizar.ejecutar(claseComando);
+    public void actualizar(@RequestBody ClaseComandoActualizar claseComando, @PathVariable Long id) {
+
+        manejadorActualizar.ejecutar(claseComando, id);
     }
 
 }

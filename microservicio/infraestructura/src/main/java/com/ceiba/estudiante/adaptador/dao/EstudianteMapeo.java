@@ -1,6 +1,7 @@
 package com.ceiba.estudiante.adaptador.dao;
 
 
+import com.ceiba.estudiante.modelo.clasificacion.ObtenerNivelEstudios;
 import com.ceiba.persona.consulta.ObtenerPersonaConsulta;
 
 import org.springframework.jdbc.core.RowMapper;
@@ -25,6 +26,6 @@ public class EstudianteMapeo implements RowMapper<EstudianteDTO>, MapperResult {
         Long idPersona = rs.getLong("id_persona");
         String nivelEstudios = rs.getString("nivel_estudios");
 
-        return new EstudianteDTO(id, obtenerPersonaConsulta.ejecutar(idPersona), nivelEstudios);
+        return new EstudianteDTO(id, obtenerPersonaConsulta.ejecutar(idPersona), ObtenerNivelEstudios.obtenerNivelEstudios(nivelEstudios));
     }
 }

@@ -11,7 +11,7 @@ public class GenerarValor {
 
 
     private GenerarValor(){
-
+        throw new IllegalStateException("Clase de utilidad");
     }
 
     public static Double generarTotal(LocalDateTime time, Boolean esEstudianteNuevo, Double tarifa){

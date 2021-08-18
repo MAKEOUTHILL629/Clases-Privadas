@@ -1,2 +1,5 @@
-package com.ceiba.estudiante.modelo.clasificacion;public enum NivelEstudios {
+package com.ceiba.estudiante.modelo.clasificacion;
+
+public enum NivelEstudios {
+    UNIVERSIDAD, SECUNDARIA, PRIMARIA
 }

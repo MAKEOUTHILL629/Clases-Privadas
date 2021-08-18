@@ -1,8 +1,8 @@
 package com.ceiba.estudiante.modelo.entidad;
 
+import com.ceiba.estudiante.modelo.clasificacion.NivelEstudios;
 import com.ceiba.persona.modelo.entidad.Persona;
 import lombok.Getter;
-
 
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
@@ -13,13 +13,13 @@ public class Estudiante {
 
     private Long id;
     private Persona persona;
-    private String nivelEstudios;
+    private NivelEstudios nivelEstudios;
 
     public Estudiante(Long id) {
         this.id = id;
     }
 
-    public Estudiante(Long id, Persona persona, String nivelEstudios) {
+    public Estudiante(Long id, Persona persona, NivelEstudios nivelEstudios) {
         validarObligatorio(persona, SE_DEBE_INGRESAR_EL_ID_DE_LA_PERSONA);
         validarObligatorio(nivelEstudios, SE_DEBE_INGRESAR_EL_NIVEL_DE_ESTUDIOS);
 
