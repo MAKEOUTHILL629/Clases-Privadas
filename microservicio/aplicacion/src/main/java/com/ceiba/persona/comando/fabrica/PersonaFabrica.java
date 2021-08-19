@@ -9,10 +9,21 @@ public class PersonaFabrica {
 
     public Persona crear(PersonaComando personaComando) {
         return new Persona(
-                personaComando.getId(),
+
                 personaComando.getNombres(),
                 personaComando.getApellidos(),
                 personaComando.getCedula()
         );
+    }
+
+    public Persona crear(PersonaComando personaComando, Long id) {
+        Persona persona = new Persona(
+                personaComando.getNombres(),
+                personaComando.getApellidos(),
+                personaComando.getCedula()
+        );
+
+        persona.setId(id);
+        return persona;
     }
 }

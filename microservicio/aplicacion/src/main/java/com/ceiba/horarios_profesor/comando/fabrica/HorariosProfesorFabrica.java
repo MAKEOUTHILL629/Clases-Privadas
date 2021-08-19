@@ -1,18 +1,30 @@
 package com.ceiba.horarios_profesor.comando.fabrica;
 
 import com.ceiba.horarios_profesor.comando.HorariosProfesorComando;
+import com.ceiba.horarios_profesor.modelo.clasificacion.DiasSemana;
 import com.ceiba.horarios_profesor.modelo.entidad.HorariosProfesor;
+import com.ceiba.horarios_profesor.modelo.utilidad.HoraEntrada;
 import com.ceiba.profesor.modelo.entidad.Profesor;
 import org.springframework.stereotype.Component;
 
 @Component
 public class HorariosProfesorFabrica {
-    public HorariosProfesor crear(HorariosProfesorComando comando) {
+    public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando) {
         return new HorariosProfesor(
-                comando.getId(),
-                new Profesor(comando.getIdProfesor()),
-                comando.getDiaSemana(),
-                comando.getHora()
+                new Profesor(horariosProfesorComando.getIdProfesor()),
+                DiasSemana.DOMINGO,
+                HoraEntrada.parsearHora(horariosProfesorComando.getHora())
         );
+    }
+
+    public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando, Long id) {
+        HorariosProfesor horariosProfesor = new HorariosProfesor(
+                new Profesor(horariosProfesorComando.getIdProfesor()),
+                DiasSemana.DOMINGO,
+                HoraEntrada.parsearHora(horariosProfesorComando.getHora())
+        );
+
+        horariosProfesor.setId(id);
+        return horariosProfesor;
     }
 }

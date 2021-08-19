@@ -1,7 +1,5 @@
 package com.ceiba.clase.servicio.testdatabuilder;
 
-import com.ceiba.clase.comando.comando.ClaseComandoActualizar;
-
 import java.time.LocalDateTime;
 
 public class ClaseComandoTestDataBuilder {

@@ -1,5 +1,6 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.profesor.puerto.dao.ProfesorDAO;
 import com.ceiba.temas_profesor.puerto.repositorio.TemasProfesorRepositorio;
 import com.ceiba.temas_profesor.servicio.ActualizarTemaProfesorServicio;
 import com.ceiba.temas_profesor.servicio.CrearTemaProfesorServicio;
@@ -20,7 +21,7 @@ public class BeanTemasProfesorServicio {
     }
 
     @Bean
-    public ActualizarTemaProfesorServicio actualizarTemaProfesorServicio(TemasProfesorRepositorio repositorio) {
-        return new ActualizarTemaProfesorServicio(repositorio);
+    public ActualizarTemaProfesorServicio actualizarTemaProfesorServicio(TemasProfesorRepositorio temasProfesorRepositorio, ProfesorDAO profesorDAO) {
+        return new ActualizarTemaProfesorServicio(temasProfesorRepositorio, profesorDAO);
     }
 }

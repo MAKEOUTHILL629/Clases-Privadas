@@ -26,10 +26,10 @@ public interface HorariosProfesorRepositorio {
     void eliminar(Long id);
 
     /**
-     * Permite validar si existe un horario con un id
+     * Permite validar si existe un horario, a partir del id del profesor y de la hora y el dia
      *
-     * @param id
+     * @param horariosProfesor
      * @return si existe o no
      */
-    boolean existe(Long id);
+    boolean existe(HorariosProfesor horariosProfesor);
 }

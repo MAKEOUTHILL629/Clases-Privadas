@@ -1,7 +1,7 @@
 package com.ceiba.profesor.adaptador.dao;
 
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.persona.consulta.ObtenerPersonaConsulta;
+import com.ceiba.persona.consulta.ObtenerPersonaManejadorConsulta;
 import com.ceiba.profesor.modelo.dto.ProfesorDTO;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -10,10 +10,10 @@ import java.sql.SQLException;
 
 
 public class ProfesorMapeo implements RowMapper<ProfesorDTO>, MapperResult {
-    private final ObtenerPersonaConsulta obtenerPersonaConsulta;
+    private final ObtenerPersonaManejadorConsulta obtenerPersonaManejadorConsulta;
 
-    public ProfesorMapeo(ObtenerPersonaConsulta obtenerPersonaConsulta) {
-        this.obtenerPersonaConsulta = obtenerPersonaConsulta;
+    public ProfesorMapeo(ObtenerPersonaManejadorConsulta obtenerPersonaManejadorConsulta) {
+        this.obtenerPersonaManejadorConsulta = obtenerPersonaManejadorConsulta;
     }
 
     @Override
@@ -22,6 +22,6 @@ public class ProfesorMapeo implements RowMapper<ProfesorDTO>, MapperResult {
         Long idPersona = rs.getLong("id_persona");
         String profesion = rs.getString("profesion");
 
-        return new ProfesorDTO(id, obtenerPersonaConsulta.ejecutar(idPersona), profesion);
+        return new ProfesorDTO(id, obtenerPersonaManejadorConsulta.ejecutar(idPersona), profesion);
     }
 }

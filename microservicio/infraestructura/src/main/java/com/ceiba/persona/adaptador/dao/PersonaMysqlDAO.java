@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PersonaMysqlDAO implements PersonaDAO {
@@ -18,6 +19,9 @@ public class PersonaMysqlDAO implements PersonaDAO {
     private static String sqlListar;
     @SqlStatement(namespace = "persona", value = "obtener")
     private static String sqlObtener;
+
+    @SqlStatement(namespace = "persona", value = "persona-existe")
+    private static String sqlExistePersona;
 
     public PersonaMysqlDAO(CustomNamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -34,5 +38,13 @@ public class PersonaMysqlDAO implements PersonaDAO {
         source.addValue("id", id);
 
         return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, source, new PersonaMapeo());
+    }
+
+    @Override
+    public Boolean existe(Long id) {
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("id", id);
+
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePersona, parameterSource, Boolean.class);
     }
 }

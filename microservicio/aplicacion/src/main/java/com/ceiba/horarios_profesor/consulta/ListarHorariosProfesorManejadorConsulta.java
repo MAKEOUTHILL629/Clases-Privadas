@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ListarHorariosProfesorConsulta {
+public class ListarHorariosProfesorManejadorConsulta {
     private final HorariosProfesorDAO horariosProfesorDAO;
 
-    public ListarHorariosProfesorConsulta(HorariosProfesorDAO horariosProfesorDAO) {
+    public ListarHorariosProfesorManejadorConsulta(HorariosProfesorDAO horariosProfesorDAO) {
         this.horariosProfesorDAO = horariosProfesorDAO;
     }
 

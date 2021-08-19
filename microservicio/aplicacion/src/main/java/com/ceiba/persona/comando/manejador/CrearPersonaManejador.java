@@ -13,16 +13,16 @@ import org.springframework.stereotype.Component;
 public class CrearPersonaManejador implements ManejadorComandoRespuesta<PersonaComando, ComandoRespuesta<Long>> {
 
     private final PersonaFabrica personaFabrica;
-    private final CrearPersonaServicio servicio;
+    private final CrearPersonaServicio crearPersonaServicio;
 
-    public CrearPersonaManejador(PersonaFabrica personaFabrica, CrearPersonaServicio servicio) {
+    public CrearPersonaManejador(PersonaFabrica personaFabrica, CrearPersonaServicio crearPersonaServicio) {
         this.personaFabrica = personaFabrica;
-        this.servicio = servicio;
+        this.crearPersonaServicio = crearPersonaServicio;
     }
 
     @Override
-    public ComandoRespuesta<Long> ejecutar(PersonaComando comando) {
-        Persona persona = this.personaFabrica.crear(comando);
-        return new ComandoRespuesta<>(this.servicio.ejecutar(persona));
+    public ComandoRespuesta<Long> ejecutar(PersonaComando personaComando) {
+        Persona persona = this.personaFabrica.crear(personaComando);
+        return new ComandoRespuesta<>(this.crearPersonaServicio.ejecutar(persona));
     }
 }

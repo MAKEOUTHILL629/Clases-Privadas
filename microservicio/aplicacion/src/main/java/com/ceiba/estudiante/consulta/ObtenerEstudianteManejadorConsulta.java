@@ -5,10 +5,10 @@ import com.ceiba.estudiante.puerto.dao.EstudianteDAO;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ObtenerEstudianteConsulta {
+public class ObtenerEstudianteManejadorConsulta {
     private final EstudianteDAO estudianteDAO;
 
-    public ObtenerEstudianteConsulta(EstudianteDAO estudianteDAO) {
+    public ObtenerEstudianteManejadorConsulta(EstudianteDAO estudianteDAO) {
         this.estudianteDAO = estudianteDAO;
     }
 

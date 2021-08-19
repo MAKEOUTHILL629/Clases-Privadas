@@ -38,8 +38,7 @@ public class ComandoTemasProfesorControlador {
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar tema profesor")
     public void actualizar(@RequestBody TemasProfesorComando comando, @PathVariable Long id) {
-        comando.setId(id);
-        actualizarManejador.ejecutar(comando);
+        actualizarManejador.ejecutar(comando, id);
     }
 
 }

@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class EliminarHorariosProfesorManejador implements ManejadorComando<Long> {
-    private final EliminarTemaProfesorService service;
+    private final EliminarTemaProfesorService eliminarTemaProfesorService;
 
-    public EliminarHorariosProfesorManejador(EliminarTemaProfesorService service) {
-        this.service = service;
+    public EliminarHorariosProfesorManejador(EliminarTemaProfesorService eliminarTemaProfesorService) {
+        this.eliminarTemaProfesorService = eliminarTemaProfesorService;
     }
 
     @Override
-    public void ejecutar(Long comando) {
-        service.ejecutar(comando);
+    public void ejecutar(Long id) {
+        eliminarTemaProfesorService.ejecutar(id);
     }
 }

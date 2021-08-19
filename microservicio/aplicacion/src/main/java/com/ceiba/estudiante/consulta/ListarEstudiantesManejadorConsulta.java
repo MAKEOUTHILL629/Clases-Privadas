@@ -8,10 +8,10 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-public class ListarEstudiantesConsulta {
+public class ListarEstudiantesManejadorConsulta {
     private final EstudianteDAO estudianteDAO;
-    
-    public ListarEstudiantesConsulta(EstudianteDAO estudianteDAO) {
+
+    public ListarEstudiantesManejadorConsulta(EstudianteDAO estudianteDAO) {
         this.estudianteDAO = estudianteDAO;
     }
 

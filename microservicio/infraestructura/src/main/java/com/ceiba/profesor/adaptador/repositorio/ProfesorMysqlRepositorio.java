@@ -25,8 +25,12 @@ public class ProfesorMysqlRepositorio implements ProfesorRepositorio {
     @SqlStatement(namespace = "profesor", value = "eliminar")
     private static String sqlEliminar;
 
-    @SqlStatement(namespace = "profesor", value = "existe")
-    private static String sqlExiste;
+    @SqlStatement(namespace = "profesor", value = "existe-profesor")
+    private static String sqlExisteProfesor;
+
+    @SqlStatement(namespace = "profesor", value = "existe-persona")
+    private static String sqlExistePersona;
+
 
     public ProfesorMysqlRepositorio(CustomNamedParameterJdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
@@ -56,12 +60,21 @@ public class ProfesorMysqlRepositorio implements ProfesorRepositorio {
         this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, parameterSource);
     }
 
+
     @Override
-    public boolean existe(Long id) {
+    public Boolean existeConIdPersona(Long idPersona) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("id", id);
+        parameterSource.addValue("idPersona", idPersona);
 
 
-        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, parameterSource, Boolean.class);
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExistePersona, parameterSource, Boolean.class);
+    }
+
+    @Override
+    public Boolean existeConIdProfesor(Long idProfesor) {
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("idEstudiante", idProfesor);
+
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteProfesor, parameterSource, Boolean.class);
     }
 }

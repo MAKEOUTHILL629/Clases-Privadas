@@ -1,8 +1,6 @@
 package com.ceiba.profesor.servicio.testdatabuilder;
 
-import com.ceiba.persona.modelo.entidad.Persona;
-import com.ceiba.persona.servicio.testdatabuilder.PersonaComandoTestDataBuilder;
-import com.ceiba.profesor.comando.ProfesorComando;
+import com.ceiba.profesor.comando.comando.ProfesorComandoCrear;
 
 public class ProfesorComandoTestDataBuilder {
     private Long id;
@@ -29,7 +27,7 @@ public class ProfesorComandoTestDataBuilder {
         return this;
     }
 
-    public ProfesorComando build(){
-        return new ProfesorComando(id,idPersona,profesion);
+    public ProfesorComandoCrear build(){
+        return new ProfesorComandoCrear(id,idPersona,profesion);
     }
 }

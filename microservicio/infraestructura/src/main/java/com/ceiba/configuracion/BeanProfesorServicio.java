@@ -1,5 +1,6 @@
 package com.ceiba.configuracion;
 
+import com.ceiba.persona.puerto.dao.PersonaDAO;
 import com.ceiba.profesor.puerto.repositorio.ProfesorRepositorio;
 import com.ceiba.profesor.servicio.ActualizarProfesorServicio;
 import com.ceiba.profesor.servicio.CrearProfesorServicio;
@@ -10,8 +11,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanProfesorServicio {
     @Bean
-    public CrearProfesorServicio crearProfesorServicio(ProfesorRepositorio repositorio) {
-        return new CrearProfesorServicio(repositorio);
+    public CrearProfesorServicio crearProfesorServicio(ProfesorRepositorio profesorRepositorio, PersonaDAO personaDAO) {
+        return new CrearProfesorServicio(profesorRepositorio, personaDAO);
     }
 
     @Bean

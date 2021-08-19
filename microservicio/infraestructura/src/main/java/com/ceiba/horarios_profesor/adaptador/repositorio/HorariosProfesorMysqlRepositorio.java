@@ -14,7 +14,7 @@ import java.util.Objects;
 
 @Repository
 public class HorariosProfesorMysqlRepositorio implements HorariosProfesorRepositorio {
-    private final CustomNamedParameterJdbcTemplate jdbcTemplate;
+    private final CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate;
 
     @SqlStatement(namespace = "horarios_profesor", value = "crear")
     private static String sqlCrear;
@@ -28,8 +28,8 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
     @SqlStatement(namespace = "horarios_profesor", value = "existe")
     private static String sqlExiste;
 
-    public HorariosProfesorMysqlRepositorio(CustomNamedParameterJdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
+    public HorariosProfesorMysqlRepositorio(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
+        this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
     }
 
     @Override
@@ -37,7 +37,7 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
         MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
-        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource, keyHolder, new String[]{"id"});
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlCrear, paramSource, keyHolder, new String[]{"id"});
         return Objects.requireNonNull(keyHolder.getKey()).longValue();
     }
 
@@ -45,7 +45,7 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
     public void actualizar(HorariosProfesor horarios) {
         MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
 
-        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlActualizar, paramSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlActualizar, paramSource);
     }
 
     @Override
@@ -54,15 +54,12 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
         parameterSource.addValue("id", id);
 
 
-        this.jdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, parameterSource);
+        this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().update(sqlEliminar, parameterSource);
     }
 
     @Override
-    public boolean existe(Long id) {
-        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("id", id);
-
-
-        return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, parameterSource, Boolean.class);
+    public boolean existe(HorariosProfesor horarios) {
+        MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
     }
 }

@@ -1,7 +1,7 @@
 package com.ceiba.clase.comando.manejador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.clase.comando.comando.ClaseComandoCrear;
+import com.ceiba.clase.comando.ClaseComando;
 import com.ceiba.clase.comando.fabrica.ClaseFabrica;
 import com.ceiba.clase.modelo.entidad.Clase;
 import com.ceiba.clase.servicio.CrearClaseServicio;
@@ -9,18 +9,18 @@ import com.ceiba.manejador.ManejadorComandoRespuesta;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CrearClaseManejador implements ManejadorComandoRespuesta<ClaseComandoCrear, ComandoRespuesta<Long>> {
-    private final ClaseFabrica fabrica;
-    private final CrearClaseServicio servicio;
+public class CrearClaseManejador implements ManejadorComandoRespuesta<ClaseComando, ComandoRespuesta<Long>> {
+    private final ClaseFabrica claseFabrica;
+    private final CrearClaseServicio crearClaseServicio;
 
-    public CrearClaseManejador(ClaseFabrica fabrica, CrearClaseServicio servicio) {
-        this.fabrica = fabrica;
-        this.servicio = servicio;
+    public CrearClaseManejador(ClaseFabrica claseFabrica, CrearClaseServicio crearClaseServicio) {
+        this.claseFabrica = claseFabrica;
+        this.crearClaseServicio = crearClaseServicio;
     }
 
     @Override
-    public ComandoRespuesta<Long> ejecutar(ClaseComandoCrear claseComandoCrear) {
-        Clase clase = this.fabrica.crear(claseComandoCrear);
-        return new ComandoRespuesta<>(this.servicio.ejecutar(clase));
+    public ComandoRespuesta<Long> ejecutar(ClaseComando claseComandoCrear) {
+        Clase clase = this.claseFabrica.crear(claseComandoCrear);
+        return new ComandoRespuesta<>(this.crearClaseServicio.ejecutar(clase));
     }
 }

@@ -5,15 +5,17 @@ import com.ceiba.persona.modelo.dto.PersonaDTO;
 import com.ceiba.persona.puerto.dao.PersonaDAO;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class ObtenerPersonaConsulta {
+public class ListarPersonasManejadorConsulta {
     private final PersonaDAO personaDAO;
 
-    public ObtenerPersonaConsulta(PersonaDAO personaDAO) {
+    public ListarPersonasManejadorConsulta(PersonaDAO personaDAO) {
         this.personaDAO = personaDAO;
     }
 
-    public PersonaDTO ejecutar(Long id) {
-        return this.personaDAO.obtener(id);
+    public List<PersonaDTO> ejecutar() {
+        return this.personaDAO.listar();
     }
 }

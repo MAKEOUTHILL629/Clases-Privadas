@@ -1,6 +1,6 @@
 package com.ceiba.temas_profesor.controlador;
 
-import com.ceiba.temas_profesor.consulta.ListarTemasProfesorConsulta;
+import com.ceiba.temas_profesor.consulta.ListarTemasProfesorManejadorConsulta;
 import com.ceiba.temas_profesor.consulta.ObtenerTemasProfesorManejadorConsulta;
 import com.ceiba.temas_profesor.modelo.dto.TemasProfesorDTO;
 import io.swagger.annotations.Api;
@@ -16,18 +16,18 @@ import java.util.List;
 @RequestMapping("/temas-profesor")
 @Api(tags = {"Controlador consulta temas"})
 public class ConsultarTemasProfesorControlador {
-    private final ListarTemasProfesorConsulta consulta;
+    private final ListarTemasProfesorManejadorConsulta listarTemasProfesorManejadorConsulta;
     private final ObtenerTemasProfesorManejadorConsulta obtenerTemasProfesorConsulta;
 
-    public ConsultarTemasProfesorControlador(ListarTemasProfesorConsulta consulta, ObtenerTemasProfesorManejadorConsulta obtenerTemasProfesorConsulta) {
-        this.consulta = consulta;
+    public ConsultarTemasProfesorControlador(ListarTemasProfesorManejadorConsulta listarTemasProfesorManejadorConsulta, ObtenerTemasProfesorManejadorConsulta obtenerTemasProfesorConsulta) {
+        this.listarTemasProfesorManejadorConsulta = listarTemasProfesorManejadorConsulta;
         this.obtenerTemasProfesorConsulta = obtenerTemasProfesorConsulta;
     }
 
     @GetMapping
     @ApiOperation("Listar temas")
     public List<TemasProfesorDTO> listar() {
-        return this.consulta.ejecutar();
+        return this.listarTemasProfesorManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")

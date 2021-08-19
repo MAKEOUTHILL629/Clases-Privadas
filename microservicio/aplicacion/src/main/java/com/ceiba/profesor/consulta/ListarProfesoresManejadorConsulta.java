@@ -4,15 +4,17 @@ import com.ceiba.profesor.modelo.dto.ProfesorDTO;
 import com.ceiba.profesor.puerto.dao.ProfesorDAO;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class ObtenerProfesorConsulta {
+public class ListarProfesoresManejadorConsulta {
     private final ProfesorDAO profesorDAO;
 
-    public ObtenerProfesorConsulta(ProfesorDAO profesorDAO) {
+    public ListarProfesoresManejadorConsulta(ProfesorDAO profesorDAO) {
         this.profesorDAO = profesorDAO;
     }
 
-    public ProfesorDTO ejecutar(Long id) {
-        return this.profesorDAO.obtener(id);
+    public List<ProfesorDTO> ejecutar() {
+        return this.profesorDAO.listar();
     }
 }

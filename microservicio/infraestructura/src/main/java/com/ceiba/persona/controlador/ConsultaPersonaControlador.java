@@ -1,7 +1,7 @@
 package com.ceiba.persona.controlador;
 
-import com.ceiba.persona.consulta.ListarPersonasConsulta;
-import com.ceiba.persona.consulta.ObtenerPersonaConsulta;
+import com.ceiba.persona.consulta.ListarPersonasManejadorConsulta;
+import com.ceiba.persona.consulta.ObtenerPersonaManejadorConsulta;
 import com.ceiba.persona.modelo.dto.PersonaDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -14,27 +14,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/personas")
-@Api(tags = {"Controlador consulta usuario"})
+@Api(tags = {"Controlador consulta persona"})
 public class ConsultaPersonaControlador {
-    private final ListarPersonasConsulta listarPersonas;
-    private final ObtenerPersonaConsulta obtenerPersonaConsulta;
+    private final ListarPersonasManejadorConsulta listarPersonasManejadorConsulta;
+    private final ObtenerPersonaManejadorConsulta obtenerPersonaManejadorConsulta;
 
-    public ConsultaPersonaControlador(ListarPersonasConsulta listarPersonas, ObtenerPersonaConsulta obtenerPersonaConsulta) {
-        this.listarPersonas = listarPersonas;
-        this.obtenerPersonaConsulta = obtenerPersonaConsulta;
+    public ConsultaPersonaControlador(ListarPersonasManejadorConsulta listarPersonasManejadorConsulta, ObtenerPersonaManejadorConsulta obtenerPersonaManejadorConsulta) {
+        this.listarPersonasManejadorConsulta = listarPersonasManejadorConsulta;
+        this.obtenerPersonaManejadorConsulta = obtenerPersonaManejadorConsulta;
     }
 
     @GetMapping
     @ApiOperation("Listar Personas")
     public List<PersonaDTO> listar() {
-        return this.listarPersonas.ejecutar();
+        return this.listarPersonasManejadorConsulta.ejecutar();
     }
 
 
     @GetMapping("/{id}")
     @ApiOperation("Devuelve la persona solicitado")
     public PersonaDTO obtener(@PathVariable Long id) {
-        return this.obtenerPersonaConsulta.ejecutar(id);
+        return this.obtenerPersonaManejadorConsulta.ejecutar(id);
     }
 
 

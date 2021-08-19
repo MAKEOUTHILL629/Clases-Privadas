@@ -1,7 +1,7 @@
 package com.ceiba.clase.controlador;
 
-import com.ceiba.clase.consulta.ListarClaseConsulta;
-import com.ceiba.clase.consulta.ObtenerClaseConsulta;
+import com.ceiba.clase.consulta.ListarClaseManejadorConsulta;
+import com.ceiba.clase.consulta.ObtenerClaseManejadorConsulta;
 import com.ceiba.clase.modelo.dto.ClaseDTO;
 
 import io.swagger.annotations.Api;
@@ -17,24 +17,24 @@ import java.util.List;
 @RequestMapping("/clases")
 @Api(tags = {"Controlador consulta clases"})
 public class ConsultarClaseControlador {
-    private final ListarClaseConsulta consulta;
-    private final ObtenerClaseConsulta obtenerConsulta;
+    private final ListarClaseManejadorConsulta listarClaseManejadorConsulta;
+    private final ObtenerClaseManejadorConsulta obtenerClaseManejadorConsulta;
 
-    public ConsultarClaseControlador(ListarClaseConsulta consulta, ObtenerClaseConsulta obtenerConsulta) {
-        this.consulta = consulta;
-        this.obtenerConsulta = obtenerConsulta;
+    public ConsultarClaseControlador(ListarClaseManejadorConsulta listarClaseManejadorConsulta, ObtenerClaseManejadorConsulta obtenerClaseManejadorConsulta) {
+        this.listarClaseManejadorConsulta = listarClaseManejadorConsulta;
+        this.obtenerClaseManejadorConsulta = obtenerClaseManejadorConsulta;
     }
 
     @GetMapping
     @ApiOperation("Listar clases")
     public List<ClaseDTO> listar() {
-        return this.consulta.ejecutar();
+        return this.listarClaseManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("Obtiene una clase")
     public ClaseDTO obtener(@PathVariable Long id) {
-        return this.obtenerConsulta.ejecutar(id);
+        return this.obtenerClaseManejadorConsulta.ejecutar(id);
     }
 
 }

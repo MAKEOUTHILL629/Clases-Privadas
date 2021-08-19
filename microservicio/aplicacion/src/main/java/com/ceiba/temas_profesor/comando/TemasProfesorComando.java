@@ -7,7 +7,6 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TemasProfesorComando {
-    private Long id;
     private Long idProfesor;
     private String tema;
 }

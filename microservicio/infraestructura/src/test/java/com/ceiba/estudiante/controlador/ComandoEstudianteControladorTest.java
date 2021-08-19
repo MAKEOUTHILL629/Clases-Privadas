@@ -1,11 +1,10 @@
 package com.ceiba.estudiante.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.estudiante.comando.EstudianteComando;
+import com.ceiba.estudiante.comando.comando.EstudianteComandoCrear;
 import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteComandoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -32,7 +31,7 @@ public class ComandoEstudianteControladorTest {
 
     public void crear() throws Exception {
 
-        EstudianteComando estudiante = new EstudianteComandoTestDataBuilder().build();
+        EstudianteComandoCrear estudiante = new EstudianteComandoTestDataBuilder().build();
 
         mocMvc.perform(post("/estudiante")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -45,7 +44,7 @@ public class ComandoEstudianteControladorTest {
 
     public void actualizar() throws Exception {
         Long id = 8L;
-        EstudianteComando comando = new EstudianteComandoTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
+        EstudianteComandoCrear comando = new EstudianteComandoTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
 
         mocMvc.perform(put("/estudiante/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)

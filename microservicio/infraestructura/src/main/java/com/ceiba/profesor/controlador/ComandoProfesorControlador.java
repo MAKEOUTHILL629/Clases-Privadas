@@ -1,7 +1,8 @@
 package com.ceiba.profesor.controlador;
 
 import com.ceiba.ComandoRespuesta;
-import com.ceiba.profesor.comando.ProfesorComando;
+import com.ceiba.profesor.comando.comando.ProfesorComandoActualizar;
+import com.ceiba.profesor.comando.comando.ProfesorComandoCrear;
 import com.ceiba.profesor.comando.manejador.ActualizarProfesorManejador;
 import com.ceiba.profesor.comando.manejador.CrearProfesorManejador;
 import com.ceiba.profesor.comando.manejador.EliminarProfesorManejador;
@@ -13,33 +14,32 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/profesor")
 @Api(tags = {"Controlador comando profesor"})
 public class ComandoProfesorControlador {
-    private final CrearProfesorManejador crearManejador;
-    private final ActualizarProfesorManejador actualizarManejador;
-    private final EliminarProfesorManejador eliminarManejador;
+    private final CrearProfesorManejador crearProfesorManejador;
+    private final ActualizarProfesorManejador actualizarProfesorManejador;
+    private final EliminarProfesorManejador eliminarProfesorManejador;
 
-    public ComandoProfesorControlador(CrearProfesorManejador crearManejador, ActualizarProfesorManejador actualizarManejador, EliminarProfesorManejador eliminarManejador) {
-        this.crearManejador = crearManejador;
-        this.actualizarManejador = actualizarManejador;
-        this.eliminarManejador = eliminarManejador;
+    public ComandoProfesorControlador(CrearProfesorManejador crearProfesorManejador, ActualizarProfesorManejador actualizarProfesorManejador, EliminarProfesorManejador eliminarProfesorManejador) {
+        this.crearProfesorManejador = crearProfesorManejador;
+        this.actualizarProfesorManejador = actualizarProfesorManejador;
+        this.eliminarProfesorManejador = eliminarProfesorManejador;
     }
 
     @PostMapping
     @ApiOperation("Crear profesor")
-    public ComandoRespuesta<Long> crear(@RequestBody ProfesorComando comando) {
-        return crearManejador.ejecutar(comando);
+    public ComandoRespuesta<Long> crear(@RequestBody ProfesorComandoCrear profesorComandoCrear) {
+        return crearProfesorManejador.ejecutar(profesorComandoCrear);
     }
 
     @DeleteMapping(value = "/{id}")
     @ApiOperation("Eliminar profesor")
     public void eliminar(@PathVariable Long id) {
-        eliminarManejador.ejecutar(id);
+        eliminarProfesorManejador.ejecutar(id);
     }
 
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar profesor")
-    public void actualizar(@RequestBody ProfesorComando comando, @PathVariable Long id) {
-        comando.setId(id);
-        actualizarManejador.ejecutar(comando);
+    public void actualizar(@RequestBody ProfesorComandoActualizar profesorComandoActualizar, @PathVariable Long id) {
+        actualizarProfesorManejador.ejecutar(profesorComandoActualizar, id);
     }
 
 }

@@ -7,6 +7,7 @@ import java.util.Optional;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import com.ceiba.dominio.excepcion.ExcepcionFechaEnPasado;
 import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 import com.ceiba.dominio.excepcion.ExcepcionValorObligatorio;
@@ -97,6 +98,24 @@ public class ValidadorArgumento {
         try {
             Long.parseLong(valor);
         } catch (NumberFormatException numberFormatException) {
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void validarFechaFuturo(LocalDateTime fecha, String mensaje){
+        if(LocalDateTime.now().isAfter(fecha)){
+            throw new ExcepcionFechaEnPasado(mensaje);
+        }
+    }
+
+    public static  void validarNumeroMayorUno(Long id, String mensaje){
+        if(id <= 0){
+            throw new ExcepcionValorInvalido(mensaje);
+        }
+    }
+
+    public static void validarNumeroSeEncuentreEnUnRango(Long numero, Long desde, Long hasta, String mensaje){
+	    if(numero < desde || numero > hasta){
             throw new ExcepcionValorInvalido(mensaje);
         }
     }

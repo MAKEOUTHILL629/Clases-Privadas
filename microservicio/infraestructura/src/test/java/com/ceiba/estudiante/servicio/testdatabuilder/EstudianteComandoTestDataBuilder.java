@@ -1,6 +1,6 @@
 package com.ceiba.estudiante.servicio.testdatabuilder;
 
-import com.ceiba.estudiante.comando.EstudianteComando;
+import com.ceiba.estudiante.comando.comando.EstudianteComandoCrear;
 
 public class EstudianteComandoTestDataBuilder {
     private Long id;
@@ -27,7 +27,7 @@ public class EstudianteComandoTestDataBuilder {
         return this;
     }
 
-    public EstudianteComando build(){
-        return new EstudianteComando(id,idPersona,nivelEstudios);
+    public EstudianteComandoCrear build(){
+        return new EstudianteComandoCrear(id,idPersona,nivelEstudios);
     }
 }

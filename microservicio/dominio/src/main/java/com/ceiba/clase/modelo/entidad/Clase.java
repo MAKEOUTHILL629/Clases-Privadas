@@ -7,10 +7,10 @@ import lombok.Setter;
 
 import java.time.LocalDateTime;
 
+import static com.ceiba.dominio.ValidadorArgumento.validarFechaFuturo;
+import static com.ceiba.dominio.ValidadorArgumento.validarNumeroMayorUno;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
-import static com.ceiba.dominio.ValidadorArgumento.validarPositivo;
-import static com.ceiba.excepcion.ValidacionArgumento.validarFechaFuturo;
-import static com.ceiba.excepcion.ValidacionArgumento.validarNumeroMayorUno;
+
 
 @Getter
 public class Clase {

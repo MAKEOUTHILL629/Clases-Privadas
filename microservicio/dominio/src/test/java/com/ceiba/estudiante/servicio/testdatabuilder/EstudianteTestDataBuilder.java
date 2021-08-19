@@ -1,6 +1,5 @@
 package com.ceiba.estudiante.servicio.testdatabuilder;
 
-import com.ceiba.estudiante.modelo.clasificacion.ObtenerNivelEstudios;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.persona.modelo.entidad.Persona;
 

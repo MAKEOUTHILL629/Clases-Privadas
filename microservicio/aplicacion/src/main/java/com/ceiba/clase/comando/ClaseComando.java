@@ -1,4 +1,4 @@
-package com.ceiba.clase.comando.comando;
+package com.ceiba.clase.comando;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClaseComandoCrear {
+public class ClaseComando {
     private Long idEstudiante;
     private Long idProfesor;
     private LocalDateTime fecha;

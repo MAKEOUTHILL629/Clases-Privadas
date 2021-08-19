@@ -1,6 +1,6 @@
 package com.ceiba.horarios_profesor.controlador;
 
-import com.ceiba.horarios_profesor.consulta.ListarHorariosProfesorConsulta;
+import com.ceiba.horarios_profesor.consulta.ListarHorariosProfesorManejadorConsulta;
 import com.ceiba.horarios_profesor.consulta.ObtenerHorariosProfesorManejadorConsulta;
 import com.ceiba.horarios_profesor.modelo.dto.HorariosProfesorDTO;
 import io.swagger.annotations.Api;
@@ -16,23 +16,23 @@ import java.util.List;
 @RequestMapping("/horarios-profesor")
 @Api(tags = {"Controlador consulta horarios"})
 public class ConsultarHorariosProfesorControlador {
-    private final ListarHorariosProfesorConsulta consulta;
-    private final ObtenerHorariosProfesorManejadorConsulta obtenerHorariosProfesorConsulta;
+    private final ListarHorariosProfesorManejadorConsulta listarHorariosProfesorManejadorConsulta;
+    private final ObtenerHorariosProfesorManejadorConsulta obtenerHorariosProfesorManejadorConsulta;
 
-    public ConsultarHorariosProfesorControlador(ListarHorariosProfesorConsulta consulta, ObtenerHorariosProfesorManejadorConsulta obtenerHorariosProfesorConsulta) {
-        this.consulta = consulta;
-        this.obtenerHorariosProfesorConsulta = obtenerHorariosProfesorConsulta;
+    public ConsultarHorariosProfesorControlador(ListarHorariosProfesorManejadorConsulta consulta, ObtenerHorariosProfesorManejadorConsulta obtenerHorariosProfesorManejadorConsulta) {
+        this.listarHorariosProfesorManejadorConsulta = consulta;
+        this.obtenerHorariosProfesorManejadorConsulta = obtenerHorariosProfesorManejadorConsulta;
     }
 
     @GetMapping
     @ApiOperation("Listar horarios")
     public List<HorariosProfesorDTO> listar() {
-        return this.consulta.ejecutar();
+        return this.listarHorariosProfesorManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("obtine un horario en especifico")
     public List<HorariosProfesorDTO> obtener(@PathVariable Long id) {
-        return this.obtenerHorariosProfesorConsulta.ejecutar(id);
+        return this.obtenerHorariosProfesorManejadorConsulta.ejecutar(id);
     }
 }

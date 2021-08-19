@@ -1,1 +1,1 @@
-select count(1) from horarios_profesor where id = :id
+select count(1) from horarios_profesor where dia_semana = :diaSemana AND hora = :hora AND id_profesor = :idProfesor

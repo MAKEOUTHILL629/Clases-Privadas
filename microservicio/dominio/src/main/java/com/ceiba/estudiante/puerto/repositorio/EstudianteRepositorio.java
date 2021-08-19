@@ -27,13 +27,22 @@ public interface EstudianteRepositorio {
      */
     void eliminar(Long id);
 
+
+
     /**
-     * Permite validar si existe un estudiante con un id
+     * Permite validar si existe un estudiante con un id con el id de la persona
      *
-     * @param id
+     * @param id de la persona
      * @return si existe o no
      */
-    boolean existe(Long id);
+    Boolean existeConIdPersona(Long id);
+
+    /**
+     * Permite validar si existe un estudiante con el id del estudiante
+     * @param id del estudiante
+     * @return si existe o no
+     * */
+    Boolean existeConIdEstudiante(Long id);
 
 
 }

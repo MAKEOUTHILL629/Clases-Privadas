@@ -1,9 +1,7 @@
 package com.ceiba.profesor.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.persona.comando.PersonaComando;
-import com.ceiba.persona.servicio.testdatabuilder.PersonaComandoTestDataBuilder;
-import com.ceiba.profesor.comando.ProfesorComando;
+import com.ceiba.profesor.comando.comando.ProfesorComandoCrear;
 import com.ceiba.profesor.servicio.testdatabuilder.ProfesorComandoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -15,7 +13,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.junit.Assert.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -32,7 +29,7 @@ public class ComandoProfesorControladorTest {
 
     @Test
     public void crear() throws Exception{
-        ProfesorComando profesor = new ProfesorComandoTestDataBuilder().build();
+        ProfesorComandoCrear profesor = new ProfesorComandoTestDataBuilder().build();
 
         mocMvc.perform(post("/profesor")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -45,7 +42,7 @@ public class ComandoProfesorControladorTest {
     public void actualizar() throws Exception {
         Long id = 7l;
 
-        ProfesorComando profesor = new ProfesorComandoTestDataBuilder().setProfesion("Sociales").build();
+        ProfesorComandoCrear profesor = new ProfesorComandoTestDataBuilder().setProfesion("Sociales").build();
 
         mocMvc.perform(put("/profesor/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)

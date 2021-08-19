@@ -4,6 +4,7 @@ import com.ceiba.persona.modelo.dto.PersonaDTO;
 
 
 import java.util.List;
+import java.util.Optional;
 
 public interface PersonaDAO {
     /**
@@ -16,6 +17,12 @@ public interface PersonaDAO {
      * Permite obtener una persona con su id
      * @return  una persona
      */
-
     PersonaDTO obtener(Long id);
+
+
+    /**
+     * Permite saber si la persona existe en el sistema, con el id
+     * @return existe si o no
+     * */
+    Boolean existe(Long id);
 }

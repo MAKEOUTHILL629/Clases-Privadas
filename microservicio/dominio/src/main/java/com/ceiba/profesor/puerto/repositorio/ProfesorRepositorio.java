@@ -26,12 +26,24 @@ public interface ProfesorRepositorio {
      */
     void eliminar(Long id);
 
+
+
+
     /**
-     * Permite validar si existe un profesor con un id
+     * Permite validar si existe un profesor con un id de la persona
      *
      * @param id
      * @return si existe o no
      */
-    boolean existe(Long id);
+    Boolean existeConIdPersona(Long id);
+
+
+
+    /**
+     * Permite validar si existe un estudiante con el id del estudiante
+     * @param id del estudiante
+     * @return si existe o no
+     * */
+    Boolean existeConIdProfesor(Long id);
 
 }

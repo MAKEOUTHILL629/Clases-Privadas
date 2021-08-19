@@ -6,9 +6,10 @@ import com.ceiba.persona.comando.fabrica.PersonaFabrica;
 import com.ceiba.persona.modelo.entidad.Persona;
 import com.ceiba.persona.servicio.ActualizarPersonaServicio;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class ActualizarPersonaManejador implements ManejadorComando<PersonaComando> {
+public class ActualizarPersonaManejador {
 
     private final PersonaFabrica personaFabrica;
     private final ActualizarPersonaServicio actualizarPersonaServicio;
@@ -18,9 +19,9 @@ public class ActualizarPersonaManejador implements ManejadorComando<PersonaComan
         this.actualizarPersonaServicio = actualizarPersonaServicio;
     }
 
-    @Override
-    public void ejecutar(PersonaComando comando) {
-        Persona persona = this.personaFabrica.crear(comando);
+    @Transactional
+    public void ejecutar(PersonaComando personaComando, Long id) {
+        Persona persona = this.personaFabrica.crear(personaComando, id);
         this.actualizarPersonaServicio.ejecutar(persona);
 
     }

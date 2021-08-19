@@ -1,8 +1,8 @@
 package com.ceiba.profesor.controlador;
 
 
-import com.ceiba.profesor.consulta.ListarProfesoresConsulta;
-import com.ceiba.profesor.consulta.ObtenerProfesorConsulta;
+import com.ceiba.profesor.consulta.ListarProfesoresManejadorConsulta;
+import com.ceiba.profesor.consulta.ObtenerProfesorManejadorConsulta;
 import com.ceiba.profesor.modelo.dto.ProfesorDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -17,24 +17,24 @@ import java.util.List;
 @RequestMapping("/profesores")
 @Api(tags = {"Controlador consulta profesores"})
 public class ConsultarProfesorControlador {
-    private final ListarProfesoresConsulta consulta;
-    private final ObtenerProfesorConsulta obtenerProfesorConsulta;
+    private final ListarProfesoresManejadorConsulta listarProfesoresManejadorConsulta;
+    private final ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta;
 
-    public ConsultarProfesorControlador(ListarProfesoresConsulta consulta, ObtenerProfesorConsulta obtenerProfesorConsulta) {
-        this.consulta = consulta;
-        this.obtenerProfesorConsulta = obtenerProfesorConsulta;
+    public ConsultarProfesorControlador(ListarProfesoresManejadorConsulta listarProfesoresManejadorConsulta, ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta) {
+        this.listarProfesoresManejadorConsulta = listarProfesoresManejadorConsulta;
+        this.obtenerProfesorManejadorConsulta = obtenerProfesorManejadorConsulta;
     }
 
     @GetMapping
     @ApiOperation("Listar profesores")
     public List<ProfesorDTO> listar() {
-        return this.consulta.ejecutar();
+        return this.listarProfesoresManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
     @ApiOperation("obtine un profesor en especifico")
     public ProfesorDTO obtener(@PathVariable Long id) {
-        return this.obtenerProfesorConsulta.ejecutar(id);
+        return this.obtenerProfesorManejadorConsulta.ejecutar(id);
     }
 
 }

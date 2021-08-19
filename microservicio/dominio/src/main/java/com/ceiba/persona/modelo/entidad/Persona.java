@@ -2,6 +2,7 @@ package com.ceiba.persona.modelo.entidad;
 
 
 import lombok.Getter;
+import lombok.Setter;
 
 import static com.ceiba.dominio.ValidadorArgumento.*;
 
@@ -13,7 +14,7 @@ public class Persona {
     private static final String SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO = "Se debe ingresar los nombres de usuario";
     private static final String SE_DEBE_INGRESAR_EL_APELLIDOS_DE_USUARIO = "Se debe ingresar los apellidos de usuario";
     private static final int LONGITUD_CEDULA = 10;
-
+    @Setter
     private Long id;
     private String nombres;
     private String apellidos;
@@ -24,14 +25,12 @@ public class Persona {
 
     }
 
-    public Persona(Long id, String nombres, String apellidos, String cedula) {
+    public Persona(String nombres, String apellidos, String cedula) {
         validarObligatorio(nombres, SE_DEBE_INGRESAR_EL_NOMBRE_DE_USUARIO);
         validarObligatorio(apellidos, SE_DEBE_INGRESAR_EL_APELLIDOS_DE_USUARIO);
         validarObligatorio(cedula, SE_DEBE_INGRESAR_LA_CEDULA);
         validarLongitudExacta(cedula, LONGITUD_CEDULA, LA_CEDULA_DEBE_TENER_UNA_LONGITUD_IGUAL_A);
-
-
-        this.id = id;
+        
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.cedula = cedula;

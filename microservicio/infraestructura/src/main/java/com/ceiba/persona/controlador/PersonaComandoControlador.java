@@ -13,34 +13,34 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/personas")
 @Api(tags = {"Controlador comando persona"})
 public class PersonaComandoControlador {
-    private final CrearPersonaManejador crearManejador;
-    private final ActualizarPersonaManejador actualizarManejador;
-    private final EliminarPersonaManejador eliminarManejador;
+    private final CrearPersonaManejador crearPersonaManejador;
+    private final ActualizarPersonaManejador actualizarPersonaManejador;
+    private final EliminarPersonaManejador eliminarPersonaManejador;
 
-    public PersonaComandoControlador(CrearPersonaManejador crearManejador,
-                                     ActualizarPersonaManejador actualizarManejador,
-                                     EliminarPersonaManejador eliminarManejador) {
-        this.crearManejador = crearManejador;
-        this.actualizarManejador = actualizarManejador;
-        this.eliminarManejador = eliminarManejador;
+    public PersonaComandoControlador(CrearPersonaManejador crearPersonaManejador,
+                                     ActualizarPersonaManejador actualizarPersonaManejador,
+                                     EliminarPersonaManejador eliminarPersonaManejador) {
+        this.crearPersonaManejador = crearPersonaManejador;
+        this.actualizarPersonaManejador = actualizarPersonaManejador;
+        this.eliminarPersonaManejador = eliminarPersonaManejador;
     }
 
     @PostMapping
     @ApiOperation("Crear Persona")
     public ComandoRespuesta<Long> crear(@RequestBody PersonaComando personaComando) {
-        return crearManejador.ejecutar(personaComando);
+        return crearPersonaManejador.ejecutar(personaComando);
     }
 
     @DeleteMapping(value = "/{id}")
     @ApiOperation("Elimar persona")
     public void eliminar(@PathVariable Long id) {
-        eliminarManejador.ejecutar(id);
+        eliminarPersonaManejador.ejecutar(id);
     }
 
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar Usuario")
     public void actualizar(@RequestBody PersonaComando personaComando, @PathVariable Long id) {
-        personaComando.setId(id);
-        actualizarManejador.ejecutar(personaComando);
+
+        actualizarPersonaManejador.ejecutar(personaComando, id);
     }
 }

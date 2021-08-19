@@ -1,4 +1,4 @@
-package com.ceiba.profesor.comando;
+package com.ceiba.profesor.comando.comando;
 
 import lombok.*;
 
@@ -6,8 +6,7 @@ import lombok.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProfesorComando {
-    private Long id;
+public class ProfesorComandoCrear {
     private Long idPersona;
     private String profesion;
 }

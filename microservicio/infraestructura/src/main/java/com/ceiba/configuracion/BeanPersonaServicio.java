@@ -26,4 +26,5 @@ public class BeanPersonaServicio {
         return new ActualizarPersonaServicio(repositorio);
     }
 
+
 }

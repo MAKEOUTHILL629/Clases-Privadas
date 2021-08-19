@@ -13,32 +13,32 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/horarios")
 @Api(tags = {"Controlador comando horarios profesor"})
 public class ComandoHorariosProfesorControlador {
-    private final CrearHorariosProfesorManejador crearManejador;
-    private final ActualizarHorariosProfesorManejador actualizarManejador;
-    private final EliminarHorariosProfesorManejador eliminarManejador;
+    private final CrearHorariosProfesorManejador crearHorariosProfesorManejador;
+    private final ActualizarHorariosProfesorManejador actualizarHorariosProfesorManejador;
+    private final EliminarHorariosProfesorManejador eliminarHorariosProfesorManejador;
 
-    public ComandoHorariosProfesorControlador(CrearHorariosProfesorManejador crearManejador, ActualizarHorariosProfesorManejador actualizarManejador, EliminarHorariosProfesorManejador eliminarManejador) {
-        this.crearManejador = crearManejador;
-        this.actualizarManejador = actualizarManejador;
-        this.eliminarManejador = eliminarManejador;
+    public ComandoHorariosProfesorControlador(CrearHorariosProfesorManejador crearHorariosProfesorManejador, ActualizarHorariosProfesorManejador actualizarHorariosProfesorManejador, EliminarHorariosProfesorManejador eliminarManejador) {
+        this.crearHorariosProfesorManejador = crearHorariosProfesorManejador;
+        this.actualizarHorariosProfesorManejador = actualizarHorariosProfesorManejador;
+        this.eliminarHorariosProfesorManejador = eliminarManejador;
     }
 
     @PostMapping
     @ApiOperation("Crear horario profesor")
     public ComandoRespuesta<Long> crear(@RequestBody HorariosProfesorComando comando) {
-        return crearManejador.ejecutar(comando);
+        return crearHorariosProfesorManejador.ejecutar(comando);
     }
 
     @DeleteMapping(value = "/{id}")
     @ApiOperation("Eliminar horario profesor")
     public void eliminar(@PathVariable Long id) {
-        eliminarManejador.ejecutar(id);
+        eliminarHorariosProfesorManejador.ejecutar(id);
     }
 
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar horario profesor")
     public void actualizar(@RequestBody HorariosProfesorComando comando, @PathVariable Long id) {
-        comando.setId(id);
-        actualizarManejador.ejecutar(comando);
+
+        actualizarHorariosProfesorManejador.ejecutar(comando, id);
     }
 }

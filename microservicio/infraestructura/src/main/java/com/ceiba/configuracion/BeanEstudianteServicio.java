@@ -6,6 +6,7 @@ import com.ceiba.estudiante.servicio.ActualizarEstudianteServicio;
 import com.ceiba.estudiante.servicio.CrearEstudianteServicio;
 import com.ceiba.estudiante.servicio.EliminarEstudianteServicio;
 
+import com.ceiba.persona.puerto.dao.PersonaDAO;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 public class BeanEstudianteServicio {
 
     @Bean
-    public CrearEstudianteServicio crearEstudianteServicio(EstudianteRepositorio repositorio) {
-        return new CrearEstudianteServicio(repositorio);
+    public CrearEstudianteServicio crearEstudianteServicio(EstudianteRepositorio estudianteRepositorio, PersonaDAO personaDAO) {
+        return new CrearEstudianteServicio(estudianteRepositorio, personaDAO);
     }
 
     @Bean
@@ -23,7 +24,7 @@ public class BeanEstudianteServicio {
     }
 
     @Bean
-    public ActualizarEstudianteServicio actualizarEstudianteServicio(EstudianteRepositorio repositorio) {
-        return new ActualizarEstudianteServicio(repositorio);
+    public ActualizarEstudianteServicio actualizarEstudianteServicio(EstudianteRepositorio repositorio, PersonaDAO personaDAO) {
+        return new ActualizarEstudianteServicio(repositorio,personaDAO);
     }
 }

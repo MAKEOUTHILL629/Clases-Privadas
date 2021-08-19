@@ -4,24 +4,25 @@ import com.ceiba.horarios_profesor.comando.HorariosProfesorComando;
 import com.ceiba.horarios_profesor.comando.fabrica.HorariosProfesorFabrica;
 import com.ceiba.horarios_profesor.modelo.entidad.HorariosProfesor;
 import com.ceiba.horarios_profesor.servicio.ActualizarHorarioProfesorServicio;
-import com.ceiba.manejador.ManejadorComando;
+
 
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 @Component
-public class ActualizarHorariosProfesorManejador implements ManejadorComando<HorariosProfesorComando> {
-    private final HorariosProfesorFabrica fabrica;
-    private final ActualizarHorarioProfesorServicio servicio;
+public class ActualizarHorariosProfesorManejador {
+    private final HorariosProfesorFabrica horariosProfesorFabrica;
+    private final ActualizarHorarioProfesorServicio actualizarHorarioProfesorServicio;
 
-    public ActualizarHorariosProfesorManejador(HorariosProfesorFabrica fabrica, ActualizarHorarioProfesorServicio servicio) {
-        this.fabrica = fabrica;
-        this.servicio = servicio;
+    public ActualizarHorariosProfesorManejador(HorariosProfesorFabrica horariosProfesorFabrica, ActualizarHorarioProfesorServicio actualizarHorarioProfesorServicio) {
+        this.horariosProfesorFabrica = horariosProfesorFabrica;
+        this.actualizarHorarioProfesorServicio = actualizarHorarioProfesorServicio;
     }
 
-    @Override
-    public void ejecutar(HorariosProfesorComando comando) {
-        HorariosProfesor horariosProfesor = fabrica.crear(comando);
+    @Transactional
+    public void ejecutar(HorariosProfesorComando horariosProfesorComando, Long id) {
+        HorariosProfesor horariosProfesor = horariosProfesorFabrica.crear(horariosProfesorComando, id);
 
-        this.servicio.ejecutar(horariosProfesor);
+        this.actualizarHorarioProfesorServicio.ejecutar(horariosProfesor);
     }
 }
