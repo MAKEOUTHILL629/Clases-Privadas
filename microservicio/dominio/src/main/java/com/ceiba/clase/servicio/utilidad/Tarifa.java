@@ -2,7 +2,7 @@ package com.ceiba.clase.servicio.utilidad;
 
 import com.ceiba.estudiante.modelo.clasificacion.NivelEstudios;
 
-public class Tarifa {
+public final class Tarifa {
     private static final Double TARIFA_UNIVERSIDAD = 65000D;
     private static final Double TARIFA_SECUNDARIA = 55000D;
     private static final Double TARIFA_PRIMARIA = 45000D;
