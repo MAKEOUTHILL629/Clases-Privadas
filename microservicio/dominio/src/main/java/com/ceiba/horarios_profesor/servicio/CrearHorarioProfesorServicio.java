@@ -8,8 +8,8 @@ import com.ceiba.horarios_profesor.puerto.repositorio.HorariosProfesorRepositori
 import com.ceiba.profesor.puerto.dao.ProfesorDAO;
 
 public class CrearHorarioProfesorServicio {
-    private static final String EL_HORARIO_YA_EXISTE_EN_EL_SISTEMA = " El horario ya existe en el sistema";
-    private static final String EL_ID_DEL_PROFESOR_NO_EXISTE = " El id del profesor no existe";
+    private static final String EL_HORARIO_YA_EXISTE_EN_EL_SISTEMA = "El horario ya existe en el sistema";
+    private static final String EL_ID_DEL_PROFESOR_NO_EXISTE = "El id del profesor no existe";
 
     private final HorariosProfesorRepositorio horariosProfesorRepositorio;
     private final ProfesorDAO profesorDAO;

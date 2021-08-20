@@ -1,5 +1,6 @@
 package com.ceiba.clase.servicio.utilidad;
 
+import com.ceiba.estudiante.modelo.clasificacion.NivelEstudios;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteTestDataBuilder;
 import com.ceiba.persona.modelo.entidad.Persona;
@@ -16,7 +17,7 @@ public class GenerarValorTest {
     public void validarDomingoYTarifaUniversidaEstudianteNuevo() {
         LocalDateTime localDateTime = LocalDateTime.of(2021,8,22,3,13);
         Boolean esNuevo = true;
-        Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios("UNIVERSIDAD").build();
+        Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.UNIVERSIDAD).build();
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         Double valortTotal = GenerarValor.generarTotal(localDateTime,esNuevo,tarifa);
@@ -28,7 +29,7 @@ public class GenerarValorTest {
     public void validarSabadoYTarifaPrimariaEstudianteAntiguo() {
         LocalDateTime localDateTime = LocalDateTime.of(2021,8,21,3,13);
         Boolean esNuevo = false;
-        Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios("PRIMARIA").build();
+        Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.PRIMARIA).build();
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         Double valortTotal = GenerarValor.generarTotal(localDateTime,esNuevo,tarifa);
@@ -40,7 +41,7 @@ public class GenerarValorTest {
     public void validarEsHoyYTarifaSecundariaEstudianteNuevo() {
         LocalDateTime localDateTime = LocalDateTime.now().plusHours(2);
         Boolean esNuevo = true;
-        Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
+        Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.SECUNDARIA).build();
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
         Double valortTotal = GenerarValor.generarTotal(localDateTime,esNuevo,tarifa);

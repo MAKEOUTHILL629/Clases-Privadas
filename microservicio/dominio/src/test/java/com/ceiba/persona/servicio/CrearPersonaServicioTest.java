@@ -6,6 +6,7 @@ import com.ceiba.dominio.excepcion.ExcepcionLongitudValor;
 import com.ceiba.persona.modelo.entidad.Persona;
 import com.ceiba.persona.puerto.repositorio.PersonaRepositorio;
 import com.ceiba.persona.servicio.testdatabuilder.PersonaTestDataBuilder;
+import org.junit.Assert;
 import org.junit.Test;
 
 import static org.mockito.Matchers.anyString;
@@ -38,5 +39,15 @@ public class CrearPersonaServicioTest {
         CrearPersonaServicio servicio = new CrearPersonaServicio(repositorio);
 
         BasePrueba.assertThrows(()-> servicio.ejecutar(persona), ExcepcionDuplicidad.class, "La persona ya existe en el sistema");
+    }
+
+    @Test
+    public void validarFlujoNormalCreacionTest() {
+        Persona persona = new PersonaTestDataBuilder().build();
+        PersonaRepositorio repositorio = mock(PersonaRepositorio.class);
+        when(repositorio.existe(anyString())).thenReturn(false);
+        CrearPersonaServicio servicio = new CrearPersonaServicio(repositorio);
+
+        Assert.assertEquals(new Long(0), servicio.ejecutar(persona));
     }
 }

@@ -16,12 +16,12 @@ public class BeanProfesorServicio {
     }
 
     @Bean
-    public EliminarProfesorServicio eliminarProfesorServicio(ProfesorRepositorio repositorio) {
-        return new EliminarProfesorServicio(repositorio);
+    public EliminarProfesorServicio eliminarProfesorServicio(ProfesorRepositorio profesorRepositorio) {
+        return new EliminarProfesorServicio(profesorRepositorio);
     }
 
     @Bean
-    public ActualizarProfesorServicio actualizarProfesorServicio(ProfesorRepositorio repositorio) {
-        return new ActualizarProfesorServicio(repositorio);
+    public ActualizarProfesorServicio actualizarProfesorServicio(ProfesorRepositorio profesorRepositorio, PersonaDAO personaDAO) {
+        return new ActualizarProfesorServicio(profesorRepositorio, personaDAO);
     }
 }

@@ -17,7 +17,7 @@ public class ClaseTestDataBuilder {
         this.id = 1L;
         this.estudiante = new Estudiante(1L);
         this.profesor = new Profesor(1L);
-        this.fecha = LocalDateTime.now();
+        this.fecha = LocalDateTime.now().plusHours(2);
         this.valor = 30000d;
     }
 

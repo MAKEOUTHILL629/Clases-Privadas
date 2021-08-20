@@ -1,5 +1,6 @@
 package com.ceiba.clase.servicio.utilidad;
 
+import com.ceiba.estudiante.modelo.clasificacion.NivelEstudios;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
 import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteTestDataBuilder;
 import org.junit.Test;
@@ -10,7 +11,7 @@ public class TarifaTest {
 
     @Test
     public void validarUniversitario() {
-        Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios("UNIVERSIDAD").build();
+        Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.UNIVERSIDAD).build();
 
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
@@ -20,7 +21,7 @@ public class TarifaTest {
 
     @Test
     public void validarSecundaria() {
-        Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
+        Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.SECUNDARIA).build();
 
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 
@@ -29,7 +30,7 @@ public class TarifaTest {
 
     @Test
     public void validarPrimaria() {
-        Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios("PRIMARIA").build();
+        Estudiante estudiante =new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.PRIMARIA).build();
 
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
 

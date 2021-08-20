@@ -7,8 +7,8 @@ import com.ceiba.temas_profesor.modelo.entidad.TemasProfesor;
 import com.ceiba.temas_profesor.puerto.repositorio.TemasProfesorRepositorio;
 
 public class ActualizarTemaProfesorServicio {
-    private static final String EL_TEMA_NO_EXISTE_EN_EL_SISTEMA = "El tema no existe en el sistema ";
-    private static final String EL_ID_DEL_PROFESOR_NO_EXISTE = " El id del profesor no existe";
+    private static final String EL_TEMA_NO_EXISTE_EN_EL_SISTEMA = "El tema no existe en el sistema";
+    private static final String EL_ID_DEL_PROFESOR_NO_EXISTE = "El id del profesor no existe";
     private final TemasProfesorRepositorio temasProfesorRepositorio;
     private final ProfesorDAO profesorDAO;
 

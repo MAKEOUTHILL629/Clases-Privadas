@@ -11,13 +11,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanTemasProfesorServicio {
     @Bean
-    public CrearTemaProfesorServicio crearTemaProfesorServicio(TemasProfesorRepositorio repositorio) {
-        return new CrearTemaProfesorServicio(repositorio);
+    public CrearTemaProfesorServicio crearTemaProfesorServicio(TemasProfesorRepositorio temasProfesorRepositorio, ProfesorDAO profesorDAO) {
+        return new CrearTemaProfesorServicio(temasProfesorRepositorio, profesorDAO);
     }
 
     @Bean
-    public EliminarTemaProfesorService eliminarTemaProfesorService(TemasProfesorRepositorio repositorio) {
-        return new EliminarTemaProfesorService(repositorio);
+    public EliminarTemaProfesorService eliminarTemaProfesorService(TemasProfesorRepositorio temasProfesorRepositorio) {
+        return new EliminarTemaProfesorService(temasProfesorRepositorio);
     }
 
     @Bean

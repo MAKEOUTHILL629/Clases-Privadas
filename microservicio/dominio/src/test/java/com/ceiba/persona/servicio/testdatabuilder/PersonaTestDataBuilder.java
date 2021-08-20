@@ -9,6 +9,7 @@ public class PersonaTestDataBuilder {
     private String cedula;
 
     public PersonaTestDataBuilder() {
+        this.id = 1l;
         this.nombres = "prueba_nom";
         this.apellidos = "prueba_apell";
         this.cedula = "1234567890";
@@ -34,8 +35,10 @@ public class PersonaTestDataBuilder {
         return this;
     }
 
-    public Persona build(){
-        return new Persona(id,nombres,apellidos,cedula);
+    public Persona build() {
+        Persona persona =  new Persona(nombres, apellidos, cedula);
+        persona.setId(id);
+        return persona;
     }
 
 

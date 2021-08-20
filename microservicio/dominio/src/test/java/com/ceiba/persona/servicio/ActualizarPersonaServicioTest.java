@@ -17,7 +17,7 @@ public class ActualizarPersonaServicioTest {
 
     @Test
     @DisplayName("Valida la existencia de la persona en la base de datos antes")
-    public void validarExistenciaPersonaSistema() {
+    public void validarExistenciaPersonaSistemaTest() {
         Persona persona = new PersonaTestDataBuilder().setId(1L).build();
         PersonaRepositorio repositorio = mock(PersonaRepositorio.class);
         when(repositorio.existeExcluyendoId(anyLong()))
@@ -26,5 +26,16 @@ public class ActualizarPersonaServicioTest {
 
         BasePrueba.assertThrows(() -> servicio.ejecutar(persona), ExcepcionDuplicidad.class, "La persona no existe en el sistema");
 
+    }
+
+    @Test
+    public void validarFlujoNormaActualizacionTest() {
+        Persona persona = new PersonaTestDataBuilder().setId(1L).build();
+        PersonaRepositorio repositorio = mock(PersonaRepositorio.class);
+        when(repositorio.existeExcluyendoId(anyLong()))
+                .thenReturn(true);
+        ActualizarPersonaServicio servicio = new ActualizarPersonaServicio(repositorio);
+
+        servicio.ejecutar(persona);
     }
 }

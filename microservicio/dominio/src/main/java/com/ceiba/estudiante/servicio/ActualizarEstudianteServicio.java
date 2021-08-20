@@ -2,9 +2,7 @@ package com.ceiba.estudiante.servicio;
 
 
 import com.ceiba.dominio.excepcion.ExcepcionDatoNoEncontrado;
-import com.ceiba.dominio.excepcion.ExcepcionDuplicidad;
 import com.ceiba.estudiante.modelo.entidad.Estudiante;
-import com.ceiba.estudiante.puerto.dao.EstudianteDAO;
 import com.ceiba.estudiante.puerto.repositorio.EstudianteRepositorio;
 import com.ceiba.persona.modelo.entidad.Persona;
 import com.ceiba.persona.puerto.dao.PersonaDAO;
@@ -30,7 +28,7 @@ public class ActualizarEstudianteServicio {
     }
 
     private void validarExistenciaPersona(Persona persona) {
-        boolean existePersona = personaDAO.obtener(persona.getId()) != null;
+        boolean existePersona = personaDAO.existe(persona.getId());
         if (!existePersona) {
             throw new ExcepcionDatoNoEncontrado(LA_PERSONA_NO_EXISTE_EN_EL_SISTEMA);
         }

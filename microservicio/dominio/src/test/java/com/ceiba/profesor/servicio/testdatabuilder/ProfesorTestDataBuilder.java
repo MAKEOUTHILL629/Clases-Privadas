@@ -9,7 +9,8 @@ public class ProfesorTestDataBuilder {
     private String profesion;
 
     public ProfesorTestDataBuilder() {
-        persona = new Persona(1L,"prueba_nom","prueba_apell","1234567890");
+        persona = new Persona("prueba_nom","prueba_apell","1234567890");
+        persona.setId(1l);
         profesion = "profesion prueba";
     }
 
@@ -29,6 +30,8 @@ public class ProfesorTestDataBuilder {
     }
 
     public Profesor build(){
-        return  new Profesor(id,persona,profesion);
+        Profesor profesor = new Profesor(persona,profesion);
+        profesor.setId(id);
+        return  profesor;
     }
 }
