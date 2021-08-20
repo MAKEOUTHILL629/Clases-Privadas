@@ -19,17 +19,7 @@ import static org.mockito.Mockito.when;
 
 public class ActualizarProfesorServicioTest {
 
-    @Test
-    public void validarExistenciaPersonaPreviaTest() {
-        Profesor profesor = new ProfesorTestDataBuilder().setId(1L).build();
-        ProfesorRepositorio repositorio = mock(ProfesorRepositorio.class);
-        when(repositorio.existeConIdProfesor(anyLong())).thenReturn(true);
-        PersonaDAO personaDAO = mock(PersonaDAO.class);
-        when(personaDAO.existe(anyObject())).thenReturn(false);
-        ActualizarProfesorServicio servicio = new ActualizarProfesorServicio(repositorio, personaDAO);
 
-        BasePrueba.assertThrows(()-> servicio.ejecutar(profesor), ExcepcionDatoNoEncontrado.class, "La persona no existe en el sistema");
-    }
 
     @Test
     public void validarExistenciaProfesorPreviaTest() {
@@ -38,7 +28,7 @@ public class ActualizarProfesorServicioTest {
         when(repositorio.existeConIdProfesor(anyLong())).thenReturn(false);
         PersonaDAO personaDAO = mock(PersonaDAO.class);
         when(personaDAO.existe(anyObject())).thenReturn(true);
-        ActualizarProfesorServicio servicio = new ActualizarProfesorServicio(repositorio, personaDAO);
+        ActualizarProfesorServicio servicio = new ActualizarProfesorServicio(repositorio);
 
         BasePrueba.assertThrows(()-> servicio.ejecutar(profesor), ExcepcionDatoNoEncontrado.class, "El profesor no existe en el sistema");
     }
@@ -51,7 +41,7 @@ public class ActualizarProfesorServicioTest {
         when(repositorio.existeConIdProfesor(anyLong())).thenReturn(true);
         PersonaDAO personaDAO = mock(PersonaDAO.class);
         when(personaDAO.existe(anyObject())).thenReturn(true);
-        ActualizarProfesorServicio servicio = new ActualizarProfesorServicio(repositorio, personaDAO);
+        ActualizarProfesorServicio servicio = new ActualizarProfesorServicio(repositorio);
 
         servicio.ejecutar(profesor);
 

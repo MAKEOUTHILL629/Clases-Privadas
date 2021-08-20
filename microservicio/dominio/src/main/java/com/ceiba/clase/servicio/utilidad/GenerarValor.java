@@ -14,19 +14,19 @@ public class GenerarValor {
         throw new IllegalStateException("Clase de utilidad");
     }
 
-    public static Double generarTotal(LocalDateTime time, Boolean esEstudianteNuevo, Double tarifa){
-        if(time.isBefore(LocalDateTime.now())){
+    public static Double generarTotal(LocalDateTime fechaEvaluar, Boolean esEstudianteNuevo, Double tarifa){
+        if(fechaEvaluar.isBefore(LocalDateTime.now())){
             throw new ExcepcionValorInvalido("La fecha ya paso");
         }
 
         Double total = tarifa;
 
 
-        if(ValidarFecha.esFechaHoyPeroMasTarde(time).booleanValue()){
+        if(ValidarFecha.esFechaHoyPeroMasTarde(fechaEvaluar).booleanValue()){
             total += (total * AUMENTO_TARIFA_DIA_ACTUAL) /100;
         }
 
-        if(ValidarFecha.esDomingoOSabado(time).booleanValue()){
+        if(ValidarFecha.esDomingoOSabado(fechaEvaluar).booleanValue()){
             total += (total * AUMENTO_TARIFA_SABADOS_DOMINGOS) /100;
         }
 

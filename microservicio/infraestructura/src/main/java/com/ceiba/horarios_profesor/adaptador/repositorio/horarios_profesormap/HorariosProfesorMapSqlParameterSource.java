@@ -14,9 +14,9 @@ public class HorariosProfesorMapSqlParameterSource {
 
     public MapSqlParameterSource mapearParametrosToSql() {
         paramSource.addValue("id", horariosProfesor.getId());
-        paramSource.addValue("id_profesor", horariosProfesor.getProfesor().getId());
+        paramSource.addValue("idProfesor", horariosProfesor.getProfesor().getId());
         paramSource.addValue("diaSemana", horariosProfesor.getDiaSemana().name());
-        paramSource.addValue("hora", horariosProfesor.getHora().toString());
+        paramSource.addValue("hora", horariosProfesor.getHora().toString()+ ":00");
 
         return this.paramSource;
     }

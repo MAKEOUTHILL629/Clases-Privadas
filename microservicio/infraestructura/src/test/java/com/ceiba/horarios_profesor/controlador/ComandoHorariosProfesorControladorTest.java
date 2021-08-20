@@ -31,7 +31,7 @@ public class ComandoHorariosProfesorControladorTest {
 
     @Test
     public void crear() throws Exception {
-        HorariosProfesorComando comando = new HorariosProfesorComandoTestDataBuilder().build();
+        HorariosProfesorComando comando = new HorariosProfesorComandoTestDataBuilder().setHora("15:00").build();
 
         mocMvc.perform(post("/horarios")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -42,7 +42,7 @@ public class ComandoHorariosProfesorControladorTest {
 
     @Test
     public void actualizar() throws Exception {
-        Long id = 8l;
+        Long id = 2l;
         HorariosProfesorComando comando = new HorariosProfesorComandoTestDataBuilder().build();
 
         mocMvc.perform(put("/horarios/{id}", id)

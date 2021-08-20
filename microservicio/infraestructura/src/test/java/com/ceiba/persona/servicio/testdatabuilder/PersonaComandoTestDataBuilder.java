@@ -35,6 +35,6 @@ public class PersonaComandoTestDataBuilder {
     }
 
     public PersonaComando build(){
-        return new PersonaComando(id,nombres,apellidos,cedula);
+        return new PersonaComando(nombres,apellidos,cedula);
     }
 }

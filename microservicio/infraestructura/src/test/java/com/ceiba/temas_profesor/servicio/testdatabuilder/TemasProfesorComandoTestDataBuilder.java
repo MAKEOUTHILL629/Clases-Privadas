@@ -28,6 +28,6 @@ public class TemasProfesorComandoTestDataBuilder {
     }
 
     public TemasProfesorComando build(){
-        return new TemasProfesorComando(id, idProfesor,tema);
+        return new TemasProfesorComando( idProfesor,tema);
     }
 }

@@ -12,21 +12,21 @@ public class ValidarFecha {
         throw new IllegalStateException("Utility class");
     }
 
-    public static Boolean esDomingoOSabado(LocalDateTime dateTime){
-        LocalDate date = dateTime.toLocalDate();
+    public static Boolean esDomingoOSabado(LocalDateTime fechaEvaluar){
+        LocalDate date = fechaEvaluar.toLocalDate();
         return date.getDayOfWeek() == DayOfWeek.SATURDAY || date.getDayOfWeek() == DayOfWeek.SUNDAY;
     }
 
-    public static Boolean esFechaHoyPeroMasTarde(LocalDateTime dateTime){
+    public static Boolean esFechaHoyPeroMasTarde(LocalDateTime fechaEvaluar){
 
         LocalTime localTime = LocalTime.now();
-        LocalTime actual = dateTime.toLocalTime();
+        LocalTime actual = fechaEvaluar.toLocalTime();
         return localTime.isBefore(actual);
     }
 
-    public static Boolean esPasado(LocalDateTime dateTime){
+    public static Boolean esPasado(LocalDateTime fechaEvaluar){
         LocalDate dateActual = LocalDate.now();
-        LocalDate dateComparar = dateTime.toLocalDate();
+        LocalDate dateComparar = fechaEvaluar.toLocalDate();
         return dateActual.isAfter(dateComparar);
     }
 

@@ -1,7 +1,9 @@
 package com.ceiba.profesor.controlador;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.profesor.comando.comando.ProfesorComandoActualizar;
 import com.ceiba.profesor.comando.comando.ProfesorComandoCrear;
+import com.ceiba.profesor.servicio.testdatabuilder.ProfesorComandoActualizarTestDataBuilder;
 import com.ceiba.profesor.servicio.testdatabuilder.ProfesorComandoTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
@@ -40,9 +42,8 @@ public class ComandoProfesorControladorTest {
 
     @Test
     public void actualizar() throws Exception {
-        Long id = 7l;
-
-        ProfesorComandoCrear profesor = new ProfesorComandoTestDataBuilder().setProfesion("Sociales").build();
+        Long id = 1l;
+        ProfesorComandoActualizar profesor = new ProfesorComandoActualizarTestDataBuilder().setProfesion("Sociales").build();
 
         mocMvc.perform(put("/profesor/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)

@@ -22,7 +22,6 @@ public class ActualizarHorariosProfesorManejador {
     @Transactional
     public void ejecutar(HorariosProfesorComando horariosProfesorComando, Long id) {
         HorariosProfesor horariosProfesor = horariosProfesorFabrica.crear(horariosProfesorComando, id);
-
         this.actualizarHorarioProfesorServicio.ejecutar(horariosProfesor);
     }
 }

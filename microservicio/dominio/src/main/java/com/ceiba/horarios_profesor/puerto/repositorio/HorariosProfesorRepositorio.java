@@ -31,5 +31,14 @@ public interface HorariosProfesorRepositorio {
      * @param horariosProfesor
      * @return si existe o no
      */
-    boolean existe(HorariosProfesor horariosProfesor);
+    boolean existeSinIdHorariosProfesor(HorariosProfesor horariosProfesor);
+
+
+    /**
+     * Permite validar si existe un horario, a partir del id del horario
+     *
+     * @param id del horario
+     * @return si existe o no
+     */
+    boolean existeConId(Long id);
 }

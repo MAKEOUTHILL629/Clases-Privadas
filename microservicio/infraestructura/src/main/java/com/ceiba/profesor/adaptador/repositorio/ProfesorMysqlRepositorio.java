@@ -73,7 +73,7 @@ public class ProfesorMysqlRepositorio implements ProfesorRepositorio {
     @Override
     public Boolean existeConIdProfesor(Long idProfesor) {
         MapSqlParameterSource parameterSource = new MapSqlParameterSource();
-        parameterSource.addValue("idEstudiante", idProfesor);
+        parameterSource.addValue("idProfesor", idProfesor);
 
         return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteProfesor, parameterSource, Boolean.class);
     }

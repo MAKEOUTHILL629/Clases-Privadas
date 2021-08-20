@@ -1,7 +1,7 @@
 package com.ceiba.clase.controlador;
 
 import com.ceiba.ApplicationMock;
-import com.ceiba.clase.servicio.testdatabuilder.ClaseComandoCrearTestDataBuilder;
+import com.ceiba.clase.comando.ClaseComando;
 import com.ceiba.clase.servicio.testdatabuilder.ClaseComandoTestDataBuilder;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,6 +14,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
+
+import java.time.LocalDateTime;
 
 import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -31,7 +33,7 @@ public class ComandoClaseControladorTest {
 
     @Test
     public void crear() throws Exception {
-        ClaseComandoCrear clase = new ClaseComandoCrearTestDataBuilder().build();
+        ClaseComando clase = new ClaseComandoTestDataBuilder().setFecha(LocalDateTime.now().plusDays(1)).build();
 
 
         mockMvc.perform(post("/clase")
@@ -46,7 +48,7 @@ public class ComandoClaseControladorTest {
     @Test
     public void actualizar() throws Exception{
         Long id = 1L;
-        ClaseComandoActualizar claseComando = new ClaseComandoTestDataBuilder().setIdEstudiante(1l).setIdProfesor(6l).build();
+        ClaseComando claseComando = new ClaseComandoTestDataBuilder().setIdEstudiante(1l).setIdProfesor(6l).build();
 
         mockMvc.perform(put("/clase/{id}",id)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -67,7 +69,7 @@ public class ComandoClaseControladorTest {
 
     @Test
     public void crearUnaClaseConValorEnviado() throws Exception {
-        ClaseComandoActualizar comando = new ClaseComandoTestDataBuilder().setValor(1000D).build();
+        ClaseComando comando = new ClaseComandoTestDataBuilder().build();
 
         mockMvc.perform(post("/clase")
                         .contentType(MediaType.APPLICATION_JSON)

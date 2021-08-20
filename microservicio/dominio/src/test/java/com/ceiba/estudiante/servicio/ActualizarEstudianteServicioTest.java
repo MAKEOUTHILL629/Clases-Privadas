@@ -20,26 +20,14 @@ import static org.mockito.Mockito.when;
 
 public class ActualizarEstudianteServicioTest {
 
-    @Test
-    public void validarExistenciaPersonaPreviaTest() {
-        Estudiante estudiante = new EstudianteTestDataBuilder().build();
-        EstudianteRepositorio repositorio = mock(EstudianteRepositorio.class);
-        when(repositorio.existeConIdEstudiante(anyLong())).thenReturn(true);
-        PersonaDAO personaDAO = mock(PersonaDAO.class);
-        when(personaDAO.obtener(anyLong())).thenReturn(anyObject());
-        ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio,personaDAO);
 
-        BasePrueba.assertThrows(()-> servicio.ejecutar(estudiante), ExcepcionDatoNoEncontrado.class, "La persona no existe en el sistema");
-    }
 
     @Test
     public void validarExistenciaPreviaTest() {
         Estudiante estudiante = new EstudianteTestDataBuilder().build();
         EstudianteRepositorio repositorio = mock(EstudianteRepositorio.class);
         when(repositorio.existeConIdEstudiante(anyLong())).thenReturn(false);
-        PersonaDAO personaDAO = mock(PersonaDAO.class);
-        when(personaDAO.existe(anyLong())).thenReturn(true);
-        ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio,personaDAO);
+        ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio);
 
 
         BasePrueba.assertThrows(()-> servicio.ejecutar(estudiante), ExcepcionDatoNoEncontrado.class, "El estudiante no existe en el sistema");
@@ -50,9 +38,7 @@ public class ActualizarEstudianteServicioTest {
         Estudiante estudiante = new EstudianteTestDataBuilder().build();
         EstudianteRepositorio repositorio = mock(EstudianteRepositorio.class);
         when(repositorio.existeConIdEstudiante(anyLong())).thenReturn(true);
-        PersonaDAO personaDAO = mock(PersonaDAO.class);
-        when(personaDAO.existe(anyLong())).thenReturn(true);
-        ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio,personaDAO);
+        ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio);
 
         servicio.ejecutar(estudiante);
     }

@@ -28,7 +28,7 @@ public class ConsultaPersonaControladorTest {
         mockMvc.perform(get("/personas")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(15)));
+                .andExpect(jsonPath("$", hasSize(16)));
     }
 
     @Test

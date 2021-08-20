@@ -19,7 +19,7 @@ public class CrearTemaProfesorServicio {
 
     public Long ejecutar(TemasProfesor temasProfesor) {
         validarExistenciaPrevia(temasProfesor);
-        validarExistenciaProfesor(temasProfesor.getId());
+        validarExistenciaProfesor(temasProfesor.getProfesor().getId());
         return this.repositorio.crear(temasProfesor);
     }
 

@@ -16,7 +16,8 @@ INSERT INTO persona (first_name,last_name,cedula) VALUES
 ('Rahim','Greer','1605110715'),
 ('Daquan','Pate','1616053017'),
 ('Carly','Taylor','1642051569'),
-('Odysseus','Levy','1691080710');
+('Odysseus','Levy','1691080710'),
+('Luis Felipe','Hernandez Chica','1391090710');
 
 
 INSERT INTO estudiante (id_persona,nivel_estudios) VALUES

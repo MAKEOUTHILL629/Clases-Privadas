@@ -36,7 +36,7 @@ public class PersonaComandoControladorTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comando)))
                 .andExpect(status().isOk())
-                .andExpect(content().json("{'valor': 16}"));
+                .andExpect(content().json("{'valor': 17}"));
 
     }
 

@@ -14,7 +14,10 @@ public class ProfesorMapSqlParameterSource {
 
     public MapSqlParameterSource mapearParametrosToSql() {
         paramSource.addValue("id", profesor.getId());
-        paramSource.addValue("id_persona", profesor.getPersona().getId());
+
+        if(profesor.getPersona() != null) {
+            paramSource.addValue("id_persona", profesor.getPersona().getId());
+        }
         paramSource.addValue("profesion", profesor.getProfesion());
 
         return this.paramSource;

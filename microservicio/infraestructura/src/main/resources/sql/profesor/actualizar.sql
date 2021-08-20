@@ -1,4 +1,3 @@
 update profesor
-set id_persona = :id_persona,
-    profesion = :profesion
+set profesion = :profesion
 where id = :id

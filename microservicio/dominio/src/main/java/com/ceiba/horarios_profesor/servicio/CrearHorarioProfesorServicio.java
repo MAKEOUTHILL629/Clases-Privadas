@@ -26,7 +26,7 @@ public class CrearHorarioProfesorServicio {
     }
 
     private void validarExistenciaPrevia(HorariosProfesor horariosProfesor) {
-        boolean existe = this.horariosProfesorRepositorio.existe(horariosProfesor);
+        boolean existe = this.horariosProfesorRepositorio.existeSinIdHorariosProfesor(horariosProfesor);
         if(existe){
             throw new ExcepcionDuplicidad(EL_HORARIO_YA_EXISTE_EN_EL_SISTEMA);
         }

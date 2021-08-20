@@ -39,7 +39,6 @@ public class ComandoEstudianteControlador {
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar estudiante")
     public void actualizar(@RequestBody EstudianteComandActualizar estudianteComandActualizar, @PathVariable Long id) {
-
         actualizarEstudianteManejador.ejecutar(estudianteComandActualizar, id);
     }
 

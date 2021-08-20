@@ -23,7 +23,7 @@ CREATE TABLE profesor (
 CREATE TABLE estudiante (
   id int(11) NOT NULL auto_increment,
   id_persona int(11) NOT NULL,
-  nivel_estudios varchar(15) NOT NULL
+  nivel_estudios varchar(18) NOT NULL
 );
 
 

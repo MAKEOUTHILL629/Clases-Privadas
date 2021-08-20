@@ -1,6 +1,8 @@
 package com.ceiba.horarios_profesor.servicio.testdatabuilder;
 
 import com.ceiba.horarios_profesor.comando.HorariosProfesorComando;
+import com.ceiba.horarios_profesor.modelo.clasificacion.DiasSemana;
+import com.ceiba.horarios_profesor.modelo.utilidad.HoraEntrada;
 
 import java.time.LocalTime;
 
@@ -8,32 +10,36 @@ public class HorariosProfesorComandoTestDataBuilder {
 
     private Long id;
     private Long idProfesor;
-    private String diaSemana;
-    private LocalTime hora;
+    private DiasSemana diaSemana;
+    private String hora;
 
     public HorariosProfesorComandoTestDataBuilder() {
         this.idProfesor = 3L;
-        this.diaSemana = "SABADO";
-        this.hora = LocalTime.now();
+        this.diaSemana = DiasSemana.SABADO;
+        this.hora = "22:00";
     }
 
-    public void setId(Long id) {
+    public HorariosProfesorComandoTestDataBuilder setId(Long id) {
         this.id = id;
+        return this;
     }
 
-    public void setIdProfesor(Long idProfesor) {
+    public HorariosProfesorComandoTestDataBuilder setIdProfesor(Long idProfesor) {
         this.idProfesor = idProfesor;
+        return this;
     }
 
-    public void setDiaSemana(String diaSemana) {
+    public HorariosProfesorComandoTestDataBuilder setDiaSemana(DiasSemana diaSemana) {
         this.diaSemana = diaSemana;
+        return this;
     }
 
-    public void setHora(LocalTime hora) {
+    public HorariosProfesorComandoTestDataBuilder setHora(String hora) {
         this.hora = hora;
+        return this;
     }
 
-    public HorariosProfesorComando build(){
-        return new HorariosProfesorComando(id,idProfesor,diaSemana,hora);
+    public HorariosProfesorComando build() {
+        return new HorariosProfesorComando(idProfesor, diaSemana, hora);
     }
 }

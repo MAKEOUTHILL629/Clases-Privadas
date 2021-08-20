@@ -24,7 +24,7 @@ public class BeanEstudianteServicio {
     }
 
     @Bean
-    public ActualizarEstudianteServicio actualizarEstudianteServicio(EstudianteRepositorio repositorio, PersonaDAO personaDAO) {
-        return new ActualizarEstudianteServicio(repositorio,personaDAO);
+    public ActualizarEstudianteServicio actualizarEstudianteServicio(EstudianteRepositorio repositorio) {
+        return new ActualizarEstudianteServicio(repositorio);
     }
 }

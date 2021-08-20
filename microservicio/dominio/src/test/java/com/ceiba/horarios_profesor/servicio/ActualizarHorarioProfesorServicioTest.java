@@ -21,7 +21,7 @@ public class ActualizarHorarioProfesorServicioTest {
     public void validarExistenciaPreviaHorarioTest() {
         HorariosProfesor horariosProfesor = new HorariosProfesorTestDataBuilder().build();
         HorariosProfesorRepositorio horariosProfesorRepositorio = mock(HorariosProfesorRepositorio.class);
-        when(horariosProfesorRepositorio.existe(anyObject())).thenReturn(false);
+        when(horariosProfesorRepositorio.existeConId(anyObject())).thenReturn(false);
         ProfesorDAO profesorDAO = mock(ProfesorDAO.class);
         ProfesorDTO profesorDTO = mock(ProfesorDTO.class);
         when(profesorDAO.obtener(anyLong())).thenReturn(profesorDTO);
@@ -36,7 +36,7 @@ public class ActualizarHorarioProfesorServicioTest {
     public void validarExistenciaPreviaProfesorTest() {
         HorariosProfesor horariosProfesor = new HorariosProfesorTestDataBuilder().build();
         HorariosProfesorRepositorio horariosProfesorRepositorio = mock(HorariosProfesorRepositorio.class);
-        when(horariosProfesorRepositorio.existe(anyObject())).thenReturn(true);
+        when(horariosProfesorRepositorio.existeConId(anyObject())).thenReturn(true);
         ProfesorDAO profesorDAO = mock(ProfesorDAO.class);
         when(profesorDAO.obtener(anyLong())).thenReturn(null);
         ActualizarHorarioProfesorServicio actualizarHorarioProfesorServicio = new ActualizarHorarioProfesorServicio(horariosProfesorRepositorio, profesorDAO);
@@ -49,7 +49,7 @@ public class ActualizarHorarioProfesorServicioTest {
     public void validarFlujoNormalIngresarHorario() {
         HorariosProfesor horariosProfesor = new HorariosProfesorTestDataBuilder().build();
         HorariosProfesorRepositorio horariosProfesorRepositorio = mock(HorariosProfesorRepositorio.class);
-        when(horariosProfesorRepositorio.existe(anyObject())).thenReturn(true);
+        when(horariosProfesorRepositorio.existeConId(anyObject())).thenReturn(true);
         ProfesorDAO profesorDAO = mock(ProfesorDAO.class);
         ProfesorDTO profesorDTO = mock(ProfesorDTO.class);
         when(profesorDAO.obtener(anyLong())).thenReturn(profesorDTO);

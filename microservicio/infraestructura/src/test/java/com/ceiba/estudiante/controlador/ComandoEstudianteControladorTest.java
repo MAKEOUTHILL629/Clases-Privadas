@@ -1,8 +1,11 @@
 package com.ceiba.estudiante.controlador;
 
 import com.ceiba.ApplicationMock;
+import com.ceiba.estudiante.comando.comando.EstudianteComandActualizar;
 import com.ceiba.estudiante.comando.comando.EstudianteComandoCrear;
-import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteComandoTestDataBuilder;
+import com.ceiba.estudiante.modelo.clasificacion.NivelEstudios;
+import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteComandoActualizarTestDataBuilder;
+import com.ceiba.estudiante.servicio.testdatabuilder.EstudianteComandoCrearTestDataBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,7 +34,7 @@ public class ComandoEstudianteControladorTest {
 
     public void crear() throws Exception {
 
-        EstudianteComandoCrear estudiante = new EstudianteComandoTestDataBuilder().build();
+        EstudianteComandoCrear estudiante = new EstudianteComandoCrearTestDataBuilder().setIdPersona(16l).setNivelEstudios(NivelEstudios.SECUNDARIA).build();
 
         mocMvc.perform(post("/estudiante")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -41,16 +44,14 @@ public class ComandoEstudianteControladorTest {
     }
 
     @Test
-
     public void actualizar() throws Exception {
-        Long id = 8L;
-        EstudianteComandoCrear comando = new EstudianteComandoTestDataBuilder().setNivelEstudios("SECUNDARIA").build();
+        Long id = 1l;
+        EstudianteComandActualizar comando = new EstudianteComandoActualizarTestDataBuilder().setNivelEstudios(NivelEstudios.SECUNDARIA).build();
 
         mocMvc.perform(put("/estudiante/{id}", id)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(comando)))
                 .andExpect(status().isOk());
-
     }
 
     @Test

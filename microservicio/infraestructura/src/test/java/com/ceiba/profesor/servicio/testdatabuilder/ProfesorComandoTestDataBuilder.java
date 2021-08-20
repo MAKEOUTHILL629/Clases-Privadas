@@ -28,6 +28,6 @@ public class ProfesorComandoTestDataBuilder {
     }
 
     public ProfesorComandoCrear build(){
-        return new ProfesorComandoCrear(id,idPersona,profesion);
+        return new ProfesorComandoCrear(idPersona,profesion);
     }
 }

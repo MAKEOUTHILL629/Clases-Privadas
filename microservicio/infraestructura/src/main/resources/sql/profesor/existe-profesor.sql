@@ -1,1 +1,1 @@
-select count(1) from profesor where id = :id
+select count(1) from profesor where id = :idProfesor

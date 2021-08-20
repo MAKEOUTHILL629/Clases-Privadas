@@ -15,7 +15,10 @@ public class EstudianteMapSqlParameterSource {
 
     public MapSqlParameterSource mapearParametrosToSql() {
         paramSource.addValue("id", estudiante.getId());
-        paramSource.addValue("id_persona", estudiante.getPersona().getId());
+        if(estudiante.getPersona() != null){
+            paramSource.addValue("id_persona", estudiante.getPersona().getId());
+        }
+
         paramSource.addValue("nivelEstudios", estudiante.getNivelEstudios().toString());
 
         return this.paramSource;

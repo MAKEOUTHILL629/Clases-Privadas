@@ -25,8 +25,11 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
     @SqlStatement(namespace = "horarios_profesor", value = "eliminar")
     private static String sqlEliminar;
 
-    @SqlStatement(namespace = "horarios_profesor", value = "existe")
-    private static String sqlExiste;
+    @SqlStatement(namespace = "horarios_profesor", value = "existe-campos")
+    private static String sqlExisteCampos;
+
+    @SqlStatement(namespace = "horarios_profesor", value = "existe-id")
+    private static String sqlExisteId;
 
     public HorariosProfesorMysqlRepositorio(CustomNamedParameterJdbcTemplate customNamedParameterJdbcTemplate) {
         this.customNamedParameterJdbcTemplate = customNamedParameterJdbcTemplate;
@@ -58,8 +61,16 @@ public class HorariosProfesorMysqlRepositorio implements HorariosProfesorReposit
     }
 
     @Override
-    public boolean existe(HorariosProfesor horarios) {
+    public boolean existeSinIdHorariosProfesor(HorariosProfesor horarios) {
         MapSqlParameterSource paramSource = new HorariosProfesorMapSqlParameterSource(horarios).mapearParametrosToSql();
-        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExiste, paramSource, Boolean.class);
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteCampos, paramSource, Boolean.class);
+    }
+
+    @Override
+    public boolean existeConId(Long id) {
+        MapSqlParameterSource parameterSource = new MapSqlParameterSource();
+        parameterSource.addValue("id", id);
+
+        return this.customNamedParameterJdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlExisteId, parameterSource, Boolean.class);
     }
 }
