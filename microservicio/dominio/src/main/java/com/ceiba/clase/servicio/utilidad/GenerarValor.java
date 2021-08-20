@@ -4,7 +4,7 @@ import com.ceiba.dominio.excepcion.ExcepcionValorInvalido;
 
 import java.time.LocalDateTime;
 
-public class GenerarValor {
+public final class GenerarValor {
     private static final int AUMENTO_TARIFA_SABADOS_DOMINGOS = 30;
     private static final int AUMENTO_TARIFA_DIA_ACTUAL = 15;
     private static final Double DESCUENTO_PRIMERA_CLASE = 15000D;

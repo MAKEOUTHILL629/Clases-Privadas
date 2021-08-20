@@ -3,7 +3,7 @@ package com.ceiba.clase.adaptador.repositorio.clasemap;
 import com.ceiba.clase.modelo.entidad.Clase;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 
-import java.text.SimpleDateFormat;
+
 import java.time.format.DateTimeFormatter;
 
 public class ClaseMapSqlParameterSource {

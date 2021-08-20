@@ -30,7 +30,6 @@ public class Estudiante {
         validarObligatorio(persona, SE_DEBE_INGRESAR_EL_ID_DE_LA_PERSONA);
         validarObligatorio(nivelEstudios, SE_DEBE_INGRESAR_EL_NIVEL_DE_ESTUDIOS);
 
-        this.id = id;
         this.persona = persona;
         this.nivelEstudios = nivelEstudios;
     }

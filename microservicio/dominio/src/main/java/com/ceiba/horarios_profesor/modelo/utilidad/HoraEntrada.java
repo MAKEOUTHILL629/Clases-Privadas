@@ -1,13 +1,13 @@
 package com.ceiba.horarios_profesor.modelo.utilidad;
 
-import lombok.AllArgsConstructor;
+
 
 import java.time.LocalTime;
 
 import static com.ceiba.dominio.ValidadorArgumento.validarNumeroSeEncuentreEnUnRango;
 
 
-public class HoraEntrada {
+public final class HoraEntrada {
 
 
     public static final String LA_HORA_NO_ES_VALIDA = "La hora no es valida";

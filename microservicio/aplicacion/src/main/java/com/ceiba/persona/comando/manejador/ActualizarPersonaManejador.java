@@ -1,6 +1,6 @@
 package com.ceiba.persona.comando.manejador;
 
-import com.ceiba.manejador.ManejadorComando;
+
 import com.ceiba.persona.comando.PersonaComando;
 import com.ceiba.persona.comando.fabrica.PersonaFabrica;
 import com.ceiba.persona.modelo.entidad.Persona;

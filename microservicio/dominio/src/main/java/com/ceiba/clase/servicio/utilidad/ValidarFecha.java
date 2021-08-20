@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 
-public class ValidarFecha {
+public final class ValidarFecha {
 
     private ValidarFecha(){
         throw new IllegalStateException("Utility class");
