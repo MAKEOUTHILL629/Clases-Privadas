@@ -1,6 +1,6 @@
 package com.ceiba.horarios_profesor.modelo.dto;
 
-import com.ceiba.profesor.modelo.dto.ProfesorDTO;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -10,7 +10,7 @@ import java.time.LocalTime;
 @AllArgsConstructor
 public class HorariosProfesorDTO {
     private Long id;
-    private ProfesorDTO profesorDTO;
+    private Long idProfesor;
     private String diaSemana;
     private LocalTime hora;
 

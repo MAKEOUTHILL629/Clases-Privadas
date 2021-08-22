@@ -6,10 +6,7 @@ import com.ceiba.profesor.consulta.ObtenerProfesorManejadorConsulta;
 import com.ceiba.profesor.modelo.dto.ProfesorDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,12 +23,14 @@ public class ConsultarProfesorControlador {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("Listar profesores")
     public List<ProfesorDTO> listar() {
         return this.listarProfesoresManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("obtine un profesor en especifico")
     public ProfesorDTO obtener(@PathVariable Long id) {
         return this.obtenerProfesorManejadorConsulta.ejecutar(id);

@@ -24,6 +24,7 @@ public class ComandoClaseControlador {
     }
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("Crear clase")
     public ComandoRespuesta<Long> crear(@RequestBody ClaseComando claseGuardar) {
         return this.crearClaseManejador.ejecutar(claseGuardar);

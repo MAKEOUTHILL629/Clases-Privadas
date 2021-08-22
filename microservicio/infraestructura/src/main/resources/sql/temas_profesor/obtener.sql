@@ -1,1 +1,1 @@
-select id, id_profesor,tema from temas_profesor where id = :id
+select id, id_profesor,tema from temas_profesor where id_profesor = :id

@@ -1,8 +1,6 @@
 package com.ceiba.temas_profesor.adaptador.dao;
 
-
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.profesor.consulta.ObtenerProfesorManejadorConsulta;
 import com.ceiba.temas_profesor.modelo.dto.TemasProfesorDTO;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -10,11 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TemasProfesorMapeo implements RowMapper<TemasProfesorDTO>, MapperResult {
-    private final ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta;
-
-    public TemasProfesorMapeo(ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta) {
-        this.obtenerProfesorManejadorConsulta = obtenerProfesorManejadorConsulta;
-    }
 
     @Override
     public TemasProfesorDTO mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -24,7 +17,7 @@ public class TemasProfesorMapeo implements RowMapper<TemasProfesorDTO>, MapperRe
 
         return new TemasProfesorDTO(
                 id,
-                obtenerProfesorManejadorConsulta.ejecutar(idProfesor),
+                idProfesor,
                 tema
         );
     }

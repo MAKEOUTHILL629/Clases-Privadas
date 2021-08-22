@@ -2,7 +2,6 @@ package com.ceiba.horarios_profesor.adaptador.dao;
 
 import com.ceiba.horarios_profesor.modelo.dto.HorariosProfesorDTO;
 import com.ceiba.infraestructura.jdbc.MapperResult;
-import com.ceiba.profesor.consulta.ObtenerProfesorManejadorConsulta;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
@@ -10,11 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalTime;
 
 public class HorariosProfesorMapeo implements RowMapper<HorariosProfesorDTO>, MapperResult {
-    private final ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta;
 
-    public HorariosProfesorMapeo(ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta) {
-        this.obtenerProfesorManejadorConsulta = obtenerProfesorManejadorConsulta;
-    }
 
 
     @Override
@@ -26,7 +21,7 @@ public class HorariosProfesorMapeo implements RowMapper<HorariosProfesorDTO>, Ma
 
         return new HorariosProfesorDTO(
                 id,
-                obtenerProfesorManejadorConsulta.ejecutar(idProfesor),
+                idProfesor,
                 diaSemana,
                 hora);
     }
