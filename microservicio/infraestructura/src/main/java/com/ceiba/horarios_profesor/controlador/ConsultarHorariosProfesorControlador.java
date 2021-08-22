@@ -5,10 +5,7 @@ import com.ceiba.horarios_profesor.consulta.ObtenerHorariosProfesorManejadorCons
 import com.ceiba.horarios_profesor.modelo.dto.HorariosProfesorDTO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,12 +22,14 @@ public class ConsultarHorariosProfesorControlador {
     }
 
     @GetMapping
+    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("Listar horarios")
     public List<HorariosProfesorDTO> listar() {
         return this.listarHorariosProfesorManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("obtine un horario en especifico")
     public List<HorariosProfesorDTO> obtener(@PathVariable Long id) {
         return this.obtenerHorariosProfesorManejadorConsulta.ejecutar(id);
