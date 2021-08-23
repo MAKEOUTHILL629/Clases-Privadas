@@ -1,6 +1,7 @@
 package com.ceiba.clase.controlador;
 
 import com.ceiba.clase.consulta.ListarClaseManejadorConsulta;
+import com.ceiba.clase.consulta.ListarPorEstudianteClaseManejadorConsulta;
 import com.ceiba.clase.consulta.ObtenerClaseManejadorConsulta;
 import com.ceiba.clase.modelo.dto.ClaseDTO;
 
@@ -19,10 +20,14 @@ import java.util.List;
 public class ConsultarClaseControlador {
     private final ListarClaseManejadorConsulta listarClaseManejadorConsulta;
     private final ObtenerClaseManejadorConsulta obtenerClaseManejadorConsulta;
+    private final ListarPorEstudianteClaseManejadorConsulta listarPorEstudianteClaseManejadorConsulta;
 
-    public ConsultarClaseControlador(ListarClaseManejadorConsulta listarClaseManejadorConsulta, ObtenerClaseManejadorConsulta obtenerClaseManejadorConsulta) {
+    public ConsultarClaseControlador(ListarClaseManejadorConsulta listarClaseManejadorConsulta,
+                                     ObtenerClaseManejadorConsulta obtenerClaseManejadorConsulta,
+                                     ListarPorEstudianteClaseManejadorConsulta listarPorEstudianteClaseManejadorConsulta) {
         this.listarClaseManejadorConsulta = listarClaseManejadorConsulta;
         this.obtenerClaseManejadorConsulta = obtenerClaseManejadorConsulta;
+        this.listarPorEstudianteClaseManejadorConsulta = listarPorEstudianteClaseManejadorConsulta;
     }
 
     @GetMapping
@@ -35,6 +40,12 @@ public class ConsultarClaseControlador {
     @ApiOperation("Obtiene una clase")
     public ClaseDTO obtener(@PathVariable Long id) {
         return this.obtenerClaseManejadorConsulta.ejecutar(id);
+    }
+
+    @GetMapping("/estudiante/{id}")
+    @ApiOperation("Obtiene una lista de clases, dependiendo del id del estudiante")
+    public List<ClaseDTO> obtenerPorIdEstudiante(@PathVariable Long id) {
+        return this.listarPorEstudianteClaseManejadorConsulta.ejecutar(id);
     }
 
 }

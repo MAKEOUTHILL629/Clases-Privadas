@@ -24,6 +24,9 @@ public class ClaseMysqlDAO implements ClaseDAO {
     @SqlStatement(namespace = "clase", value = "obtener")
     private static String sqlObtener;
 
+    @SqlStatement(namespace = "clase", value = "obtener-estudiante")
+    private static String sqlObtenerIdEstudiante;
+
     public ClaseMysqlDAO(CustomNamedParameterJdbcTemplate jdbcTemplate, ObtenerEstudianteManejadorConsulta obtenerEstudianteManejadorConsulta, ObtenerProfesorManejadorConsulta obtenerProfesorManejadorConsulta) {
         this.jdbcTemplate = jdbcTemplate;
         this.obtenerEstudianteManejadorConsulta = obtenerEstudianteManejadorConsulta;
@@ -40,5 +43,13 @@ public class ClaseMysqlDAO implements ClaseDAO {
         MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
         mapSqlParameterSource.addValue("id", id);
         return this.jdbcTemplate.getNamedParameterJdbcTemplate().queryForObject(sqlObtener, mapSqlParameterSource, new ClaseMapeo(obtenerEstudianteManejadorConsulta, obtenerProfesorManejadorConsulta));
+    }
+
+    @Override
+    public List<ClaseDTO> obtenerClasesIdEstudiante(Long idEstudiante) {
+        MapSqlParameterSource mapSqlParameterSource = new MapSqlParameterSource();
+        mapSqlParameterSource.addValue("idEstudiante", idEstudiante);
+
+        return this.jdbcTemplate.getNamedParameterJdbcTemplate().query(sqlObtenerIdEstudiante, mapSqlParameterSource, new ClaseMapeo(obtenerEstudianteManejadorConsulta, obtenerProfesorManejadorConsulta));
     }
 }

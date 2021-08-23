@@ -22,14 +22,12 @@ public class ConsultarTemasProfesorControlador {
     }
 
     @GetMapping
-    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("Listar temas")
     public List<TemasProfesorDTO> listar() {
         return this.listarTemasProfesorManejadorConsulta.ejecutar();
     }
 
     @GetMapping("/{id}")
-    @CrossOrigin(origins = "http://localhost:4200")
     @ApiOperation("Listar temas de un profesor")
     public List<TemasProfesorDTO> obtener(@PathVariable Long id) {
         return this.obtenerTemasProfesorConsulta.ejecutar(id);

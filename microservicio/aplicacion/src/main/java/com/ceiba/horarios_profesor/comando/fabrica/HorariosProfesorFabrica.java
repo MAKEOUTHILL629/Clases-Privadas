@@ -12,7 +12,7 @@ public class HorariosProfesorFabrica {
     public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando) {
         return new HorariosProfesor(
                 new Profesor(horariosProfesorComando.getIdProfesor()),
-                DiasSemana.DOMINGO,
+                horariosProfesorComando.getDiaSemana(),
                 HoraEntrada.parsearHora(horariosProfesorComando.getHora())
         );
     }
@@ -20,7 +20,7 @@ public class HorariosProfesorFabrica {
     public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando, Long id) {
         HorariosProfesor horariosProfesor = new HorariosProfesor(
                 new Profesor(horariosProfesorComando.getIdProfesor()),
-                DiasSemana.DOMINGO,
+                horariosProfesorComando.getDiaSemana(),
                 HoraEntrada.parsearHora(horariosProfesorComando.getHora())
         );
 

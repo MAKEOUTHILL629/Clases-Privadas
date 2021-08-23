@@ -4,16 +4,17 @@ import com.ceiba.clase.modelo.dto.ClaseDTO;
 import com.ceiba.clase.puerto.dao.ClaseDAO;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 @Component
-public class ObtenerClaseManejadorConsulta {
+public class ListarPorEstudianteClaseManejadorConsulta {
     private final ClaseDAO claseDAO;
 
-    public ObtenerClaseManejadorConsulta(ClaseDAO claseDAO) {
+    public ListarPorEstudianteClaseManejadorConsulta(ClaseDAO claseDAO) {
         this.claseDAO = claseDAO;
     }
 
-    public ClaseDTO ejecutar(Long id) {
-        return this.claseDAO.obtener(id);
+    public List<ClaseDTO> ejecutar(Long id) {
+        return this.claseDAO.obtenerClasesIdEstudiante(id);
     }
-
 }
