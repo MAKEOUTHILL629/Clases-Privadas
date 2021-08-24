@@ -1,7 +1,6 @@
 package com.ceiba.horarios_profesor.comando.fabrica;
 
 import com.ceiba.horarios_profesor.comando.HorariosProfesorComando;
-import com.ceiba.horarios_profesor.modelo.clasificacion.DiasSemana;
 import com.ceiba.horarios_profesor.modelo.entidad.HorariosProfesor;
 import com.ceiba.horarios_profesor.modelo.utilidad.HoraEntrada;
 import com.ceiba.profesor.modelo.entidad.Profesor;

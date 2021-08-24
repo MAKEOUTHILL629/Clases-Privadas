@@ -1,5 +1,3 @@
-insert into usuario(nombre,clave,fecha_creacion) values('test','1234',now());
-
 
 INSERT INTO persona (first_name,last_name,cedula) VALUES
 ('Guy','Trevino','1676051331'),
