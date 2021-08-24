@@ -13,8 +13,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyObject;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ActualizarTemaProfesorServicioTest {
 
@@ -54,5 +53,7 @@ public class ActualizarTemaProfesorServicioTest {
         ActualizarTemaProfesorServicio actualizarTemaProfesorServicio = new ActualizarTemaProfesorServicio(temasProfesorRepositorio, profesorDAO);
 
         actualizarTemaProfesorServicio.ejecutar(temasProfesor);
+
+        verify(temasProfesorRepositorio).actualizar(temasProfesor);
     }
 }

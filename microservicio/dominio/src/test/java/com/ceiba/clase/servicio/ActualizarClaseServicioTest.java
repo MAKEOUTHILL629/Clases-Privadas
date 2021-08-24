@@ -71,5 +71,6 @@ public class ActualizarClaseServicioTest {
 
 
         actualizarClaseServicio.ejecutar(clase);
+        verify(claseRepositorio).actualizar(clase);
     }
 }

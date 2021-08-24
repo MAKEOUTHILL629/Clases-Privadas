@@ -15,8 +15,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.anyLong;
 import static org.mockito.Matchers.anyObject;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ActualizarEstudianteServicioTest {
 
@@ -41,6 +40,7 @@ public class ActualizarEstudianteServicioTest {
         ActualizarEstudianteServicio servicio = new ActualizarEstudianteServicio(repositorio);
 
         servicio.ejecutar(estudiante);
+        verify(repositorio).actualizar(estudiante);
     }
 
 }

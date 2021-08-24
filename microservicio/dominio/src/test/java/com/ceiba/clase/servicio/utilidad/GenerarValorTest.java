@@ -15,7 +15,7 @@ public class GenerarValorTest {
 
     @Test
     public void validarDomingoYTarifaUniversidaEstudianteNuevo() {
-        LocalDateTime localDateTime = LocalDateTime.of(2021,8,22,3,13);
+        LocalDateTime localDateTime = LocalDateTime.of(2022,8,21,3,13);
         Boolean esNuevo = true;
         Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.UNIVERSIDAD).build();
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
@@ -27,7 +27,7 @@ public class GenerarValorTest {
 
     @Test
     public void validarSabadoYTarifaPrimariaEstudianteAntiguo() {
-        LocalDateTime localDateTime = LocalDateTime.of(2021,8,21,3,13);
+        LocalDateTime localDateTime = LocalDateTime.of(2022,8,20,3,13);
         Boolean esNuevo = false;
         Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.PRIMARIA).build();
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());
@@ -39,7 +39,7 @@ public class GenerarValorTest {
 
     @Test
     public void validarEsHoyYTarifaSecundariaEstudianteNuevo() {
-        LocalDateTime localDateTime = LocalDateTime.now().plusHours(2);
+        LocalDateTime localDateTime = LocalDateTime.now().plusHours(1);
         Boolean esNuevo = true;
         Estudiante estudiante = new EstudianteTestDataBuilder().setNivelEstudios(NivelEstudios.SECUNDARIA).build();
         Double tarifa = Tarifa.generarTarifa(estudiante.getNivelEstudios());

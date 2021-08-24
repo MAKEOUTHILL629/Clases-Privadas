@@ -4,6 +4,7 @@ import com.ceiba.profesor.modelo.entidad.Profesor;
 import lombok.Getter;
 import lombok.Setter;
 
+import static com.ceiba.dominio.ValidadorArgumento.validarNoVacio;
 import static com.ceiba.dominio.ValidadorArgumento.validarObligatorio;
 
 @Getter
@@ -19,6 +20,7 @@ public class TemasProfesor {
     public TemasProfesor(Profesor profesor, String tema) {
         validarObligatorio(profesor, SE_DEBE_INGRESAR_EL_ID_DEL_PROFESOR);
         validarObligatorio(tema, SE_DEBE_INGRESAR_EL_TEMA);
+        validarNoVacio(tema, SE_DEBE_INGRESAR_EL_TEMA);
 
         this.profesor = profesor;
         this.tema = tema;

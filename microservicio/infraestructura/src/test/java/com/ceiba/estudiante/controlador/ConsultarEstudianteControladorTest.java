@@ -29,8 +29,7 @@ public class ConsultarEstudianteControladorTest {
         mocMvc.perform(get("/estudiantes")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$", hasSize(7)))
-                .andExpect(jsonPath("$[1].nivelEstudios", is("SECUNDARIA")));
+                .andExpect(jsonPath("$", hasSize(7)));
     }
 
     @Test

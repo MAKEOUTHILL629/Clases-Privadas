@@ -37,7 +37,7 @@ public class ValidarFechaTest {
 
     @Test
     public void validarFechaEsHoyPeroMasTemprano() {
-        LocalDateTime dateActual = LocalDateTime.now().plusHours(2);
+        LocalDateTime dateActual = LocalDateTime.now().plusHours(1);
 
         Boolean actual = ValidarFecha.esFechaHoyPeroMasTarde(dateActual);
 

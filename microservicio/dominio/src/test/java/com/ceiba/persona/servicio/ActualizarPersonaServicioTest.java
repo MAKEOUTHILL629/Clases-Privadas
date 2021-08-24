@@ -10,8 +10,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.mockito.Mockito;
 
 import static org.mockito.Matchers.anyLong;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 public class ActualizarPersonaServicioTest {
 
@@ -37,5 +36,6 @@ public class ActualizarPersonaServicioTest {
         ActualizarPersonaServicio servicio = new ActualizarPersonaServicio(repositorio);
 
         servicio.ejecutar(persona);
+        verify(repositorio).actualizar(persona);
     }
 }
