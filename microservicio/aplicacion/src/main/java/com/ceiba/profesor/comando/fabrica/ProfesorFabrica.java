@@ -8,18 +8,18 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class ProfesorFabrica {
-    public Profesor crear(ProfesorComandoCrear profesorComandoCrear) {
-
-        return new Profesor(
-                new Persona(profesorComandoCrear.getIdPersona()),
-                profesorComandoCrear.getProfesion()
-        );
-    }
 
     public Profesor crear(ProfesorComandoActualizar profesorComandoActualizar, Long id) {
         Profesor profesor = new Profesor(profesorComandoActualizar.getProfesion());
         profesor.setId(id);
         return profesor;
 
+    }
+
+    public Profesor crear(ProfesorComandoCrear profesorComandoCrear) {
+        return new Profesor(
+                new Persona(profesorComandoCrear.getIdPersona()),
+                profesorComandoCrear.getProfesion()
+        );
     }
 }

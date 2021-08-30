@@ -10,11 +10,7 @@ import org.springframework.stereotype.Component;
 public class ClaseFabrica {
     public Clase crear(ClaseComando claseComando, Long id) {
 
-        Clase clase = new Clase(
-                new Estudiante(claseComando.getIdEstudiante()),
-                new Profesor(claseComando.getIdProfesor()),
-                claseComando.getFecha()
-        );
+        Clase clase = this.crear(claseComando);
 
         clase.setId(id);
 
@@ -24,7 +20,7 @@ public class ClaseFabrica {
     public Clase crear(ClaseComando claseComando) {
         return new Clase(
                 new Estudiante(claseComando.getIdEstudiante()),
-                new Profesor(claseComando.getIdEstudiante()),
+                new Profesor(claseComando.getIdProfesor()),
                 claseComando.getFecha());
     }
 }

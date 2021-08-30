@@ -38,8 +38,7 @@ public class ComandoClaseControlador {
     @PutMapping(value = "/{id}")
     @ApiOperation("Actualizar clase")
     public void actualizar(@RequestBody ClaseComando claseComandoActualizar, @PathVariable Long id) {
-
-        actualizarClaseManejador.ejecutar(claseComandoActualizar, id);
+      actualizarClaseManejador.ejecutar(claseComandoActualizar, id);
     }
 
 }

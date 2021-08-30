@@ -8,6 +8,13 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class HorariosProfesorFabrica {
+
+    public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando, Long id) {
+        HorariosProfesor horariosProfesor = this.crear(horariosProfesorComando);
+        horariosProfesor.setId(id);
+        return horariosProfesor;
+    }
+
     public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando) {
         return new HorariosProfesor(
                 new Profesor(horariosProfesorComando.getIdProfesor()),
@@ -16,14 +23,5 @@ public class HorariosProfesorFabrica {
         );
     }
 
-    public HorariosProfesor crear(HorariosProfesorComando horariosProfesorComando, Long id) {
-        HorariosProfesor horariosProfesor = new HorariosProfesor(
-                new Profesor(horariosProfesorComando.getIdProfesor()),
-                horariosProfesorComando.getDiaSemana(),
-                HoraEntrada.parsearHora(horariosProfesorComando.getHora())
-        );
 
-        horariosProfesor.setId(id);
-        return horariosProfesor;
-    }
 }
