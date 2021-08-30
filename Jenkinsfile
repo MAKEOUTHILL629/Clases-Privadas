@@ -56,7 +56,9 @@ pipeline {
         echo "------------>Compile & Unit Tests<------------"
           dir('./microservicio/'){
             sh 'chmod +x gradlew'
-            sh './gradlew --b ./build.gradle test'
+            sh './gradlew :clean'
+            sh './gradlew :build'
+            sh './gradlew :test'
           }
 
         /*dir("${PROJECT_PATH_BACK}")
